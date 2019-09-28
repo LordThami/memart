@@ -5,6 +5,7 @@ import 'custom_icons_icons.dart';
 import 'sound_data.dart';
 import 'player_list.dart';
 import 'favorites_page.dart';
+import 'search_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -90,34 +91,40 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
             duration: Duration(milliseconds: 100),
             child: [
               PlayerList(getAllSounds(), _handleLikePress),
+              SearchPage(getAllSounds(), _handleLikePress),
               FavoritesPage(getLikedSounds(), _handleLikePress),
             ].elementAt(_selectedPageId)),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.black,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
                 _selectedPageId == 0
                     ? CustomIcons.home
                     : CustomIcons.home_empty,
-                size: 32.0,
               ),
-              title: Container(
-                height: 0,
-              ),
+              title: Text('Home'),
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                _selectedPageId == 1
+                _selectedPageId == 1 ? Icons.search : Icons.search,
+              ),
+              title: Text('Search'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                _selectedPageId == 2
                     ? CustomIcons.heart
                     : CustomIcons.heart_empty,
-                size: 32.0,
               ),
-              title: Container(
-                height: 0,
-              ),
+              title: Text('Favorites'),
             ),
           ],
+          backgroundColor: Colors.black,
+          iconSize: 28.0,
+          unselectedFontSize: 12.0,
+          selectedFontSize: 12.0,
+          unselectedLabelStyle: TextStyle(height: 1.3),
+          selectedLabelStyle: TextStyle(height: 1.3),
           currentIndex: _selectedPageId,
           onTap: (newId) => setState(() {
             _selectedPageId = newId;
