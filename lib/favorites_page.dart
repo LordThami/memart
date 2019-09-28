@@ -10,7 +10,11 @@ class FavoritesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _sounds.length > 0
-        ? PlayerList(_sounds, _handleLikePress)
+        ? PlayerList(
+            _sounds,
+            _handleLikePress,
+            stopOnLikeTap: true,
+          )
         : Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),

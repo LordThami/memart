@@ -5,10 +5,17 @@ import 'only_one_pointer_recorgnizer.dart';
 import 'player.dart';
 
 class PlayerList extends StatefulWidget {
-  PlayerList(this._sounds, this._handleLikePress);
+  PlayerList(
+    this._sounds,
+    this._handleLikePress, {
+    bool stopOnLikeTap = false,
+  }) {
+    this.stopOnLikeTap = stopOnLikeTap;
+  }
 
   final List<Map<String, String>> _sounds;
   final Function _handleLikePress;
+  bool stopOnLikeTap = true;
 
   @override
   _PlayerListState createState() => _PlayerListState();
@@ -78,8 +85,14 @@ class _PlayerListState extends State<PlayerList> {
                     handlePress: () {
                       handlePress(id);
                     },
-                    handleLikePress: () {
+                    handleLikePress: () async {
                       widget._handleLikePress(sound['soundPath']);
+                      if (widget.stopOnLikeTap) {
+                        await _player.stop();
+                        setState(() {
+                          _playingSoundId = null;
+                        });
+                      }
                     },
                   )))
               .values
