@@ -87,13 +87,15 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
         accentColor: Colors.white,
       ),
       home: Scaffold(
-        body: AnimatedSwitcher(
-            duration: Duration(milliseconds: 100),
-            child: [
-              PlayerList(getAllSounds(), _handleLikePress),
-              SearchPage(getAllSounds(), _handleLikePress),
-              FavoritesPage(getLikedSounds(), _handleLikePress),
-            ].elementAt(_selectedPageId)),
+        body: SafeArea(
+          child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 100),
+              child: [
+                PlayerList(getAllSounds(), _handleLikePress),
+                SearchPage(getAllSounds(), _handleLikePress),
+                FavoritesPage(getLikedSounds(), _handleLikePress),
+              ].elementAt(_selectedPageId)),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(

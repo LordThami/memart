@@ -68,11 +68,13 @@ class _PlayerListState extends State<PlayerList> {
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: GridView.count(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
           mainAxisSpacing: 16.0,
           crossAxisSpacing: 16.0,
           childAspectRatio: 1.0,
           crossAxisCount: 2,
-          padding: EdgeInsets.fromLTRB(16.0, 80.0, 16.0, 24.0),
+          padding: EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 24.0),
           children: widget._sounds
               .asMap()
               .map((id, sound) => MapEntry(
