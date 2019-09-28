@@ -87,7 +87,7 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
       ),
       home: Scaffold(
         body: AnimatedSwitcher(
-            duration: Duration(milliseconds: 400),
+            duration: Duration(milliseconds: 100),
             child: [
               PlayerList(getAllSounds(), _handleLikePress),
               FavoritesPage(getLikedSounds(), _handleLikePress),
