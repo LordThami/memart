@@ -29,27 +29,14 @@ class _SearchPageState extends State<SearchPage> {
             autofocus: true,
             cursorColor: Colors.white,
             decoration: InputDecoration(
-              hintText: 'Search by title',
+              hintText: 'Search by title or theme',
               prefixIcon: Icon(Icons.search),
               contentPadding: EdgeInsets.all(16.0),
               fillColor: Colors.grey[900],
               filled: true,
               border: InputBorder.none,
             ),
-            onChanged: (newInputValue) {
-              setState(() {
-                _inputValue = newInputValue;
-                if (newInputValue.length > 0) {
-                  var valueExp = RegExp(r'(^|\W)' + newInputValue.toString(),
-                      caseSensitive: false);
-                  _foundSounds = soundData
-                      .where((sound) => valueExp.hasMatch(sound['title']))
-                      .toList();
-                } else {
-                  _foundSounds = [];
-                }
-              });
-            },
+            onChanged: filterSounds,
           ),
           Expanded(
             child: _foundSounds.length > 0
@@ -69,5 +56,50 @@ class _SearchPageState extends State<SearchPage> {
         ],
       ),
     );
+  }
+
+  void filterSounds(newInputValue) {
+    setState(() {
+      _inputValue = newInputValue.toString();
+
+      if (_inputValue.length > 0) {
+        Set<String> resultsFileNames = Set();
+        List<Map<String, String>> results = [];
+
+        [
+          {
+            'searchProperty': 'title',
+            'regex': r'^' + _inputValue,
+          },
+          {
+            'searchProperty': 'title',
+            'regex': r'\W' + _inputValue,
+          },
+          {
+            'searchProperty': 'searchString',
+            'regex': r'(^|\W)' + _inputValue,
+          },
+        ].forEach((searchRules) {
+          var regex = RegExp(
+            searchRules['regex'],
+            caseSensitive: false,
+          );
+
+          soundData.forEach((sound) {
+            var searchProperty = sound[searchRules['searchProperty']] ?? '';
+
+            if (resultsFileNames.contains(sound['soundPath']) == false &&
+                regex.hasMatch(searchProperty)) {
+              results.add(sound);
+              resultsFileNames.add(sound['soundPath']);
+            }
+          });
+        });
+
+        _foundSounds = results;
+      } else {
+        _foundSounds = [];
+      }
+    });
   }
 }
