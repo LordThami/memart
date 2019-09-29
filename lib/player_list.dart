@@ -37,8 +37,8 @@ class _PlayerListState extends State<PlayerList> {
 
   @override
   void dispose() async {
-    super.dispose();
     await _player.stop();
+    super.dispose();
   }
 
   void handlePress(int pressedSoundId) async {

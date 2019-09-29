@@ -39,19 +39,31 @@ class _SearchPageState extends State<SearchPage> {
             onChanged: filterSounds,
           ),
           Expanded(
-            child: _foundSounds.length > 0
-                ? PlayerList(_foundSounds, widget._handleLikePress)
-                : _inputValue.length > 0
-                    ? Padding(
-                        padding: const EdgeInsets.all(24.0),
-                        child: Text(
-                          'No results found for "$_inputValue"',
-                          style: TextStyle(fontSize: 16.0),
+            child: GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                print('TAP');
+              },
+              onVerticalDragStart: (o) {
+                print('VERTICAL');
+              },
+              child: _foundSounds.length > 0
+                  ? PlayerList(_foundSounds, widget._handleLikePress)
+                  : _inputValue.length > 0
+                      ? Padding(
+                          padding: const EdgeInsets.all(24.0),
+                          child: Text(
+                            'No results found for "$_inputValue"',
+                            style: TextStyle(fontSize: 16.0),
+                            textAlign: TextAlign.center,
+                          ),
+                        )
+                      : Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          color: Colors.transparent,
                         ),
-                      )
-                    : Container(
-                        height: 0,
-                      ),
+            ),
           ),
         ],
       ),
