@@ -13,6 +13,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  String _inputValue = '';
   List<Map<String, String>> _foundSounds = [];
 
   @override
@@ -36,12 +37,11 @@ class _SearchPageState extends State<SearchPage> {
               border: InputBorder.none,
             ),
             onChanged: (newInputValue) {
-              print(newInputValue);
               setState(() {
-                if (newInputValue.length > 1) {
+                _inputValue = newInputValue;
+                if (newInputValue.length > 0) {
                   var valueExp = RegExp(r'(^|\W)' + newInputValue.toString(),
                       caseSensitive: false);
-                  print(valueExp);
                   _foundSounds = soundData
                       .where((sound) => valueExp.hasMatch(sound['title']))
                       .toList();
@@ -51,9 +51,21 @@ class _SearchPageState extends State<SearchPage> {
               });
             },
           ),
-          _foundSounds.length > 0
-              ? PlayerList(_foundSounds, widget._handleLikePress)
-              : Text('No results'),
+          Expanded(
+            child: _foundSounds.length > 0
+                ? PlayerList(_foundSounds, widget._handleLikePress)
+                : _inputValue.length > 0
+                    ? Padding(
+                        padding: const EdgeInsets.all(24.0),
+                        child: Text(
+                          'No results found for "$_inputValue"',
+                          style: TextStyle(fontSize: 16.0),
+                        ),
+                      )
+                    : Container(
+                        height: 0,
+                      ),
+          ),
         ],
       ),
     );

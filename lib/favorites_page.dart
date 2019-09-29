@@ -21,15 +21,16 @@ class FavoritesPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text('No likes :\'(',
+                  Text('No likes',
                       style: TextStyle(
-                        fontSize: 24.0,
+                        fontSize: 32.0,
                       )),
                   SizedBox(
-                    height: 16.0,
+                    height: 12.0,
                   ),
                   Text(
                     'Like a sound and it will show up here.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16.0,
                     ),

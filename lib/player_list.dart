@@ -68,8 +68,6 @@ class _PlayerListState extends State<PlayerList> {
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         child: GridView.count(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
           mainAxisSpacing: 16.0,
           crossAxisSpacing: 16.0,
           childAspectRatio: 1.0,
