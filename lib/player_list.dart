@@ -65,8 +65,7 @@ class _PlayerListState extends State<PlayerList> {
       child: ButtonTheme(
         buttonColor: Colors.transparent,
         textTheme: ButtonTextTheme.normal,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         child: GridView.count(
           mainAxisSpacing: 16.0,
           crossAxisSpacing: 16.0,

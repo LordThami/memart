@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meme_soundboard/sound_data.dart';
 import 'player_list.dart';
 
 class SearchPage extends StatefulWidget {
@@ -97,7 +96,7 @@ class _SearchPageState extends State<SearchPage> {
             caseSensitive: false,
           );
 
-          soundData.forEach((sound) {
+          widget._sounds.forEach((sound) {
             var searchProperty = sound[searchRules['searchProperty']] ?? '';
 
             if (resultsFileNames.contains(sound['soundPath']) == false &&

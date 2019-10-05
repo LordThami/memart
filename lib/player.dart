@@ -22,7 +22,7 @@ class Player extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       clipBehavior: Clip.antiAlias,
-      elevation: 5,
+      elevation: 10,
       padding: EdgeInsets.all(0),
       onPressed: handlePress,
       child: Stack(
@@ -41,7 +41,7 @@ class Player extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   stops: [0.0, 1.0],
-                  colors: [Colors.transparent, Theme.of(context).primaryColor],
+                  colors: [Colors.transparent, Colors.black54],
                 ),
               ),
             ),
