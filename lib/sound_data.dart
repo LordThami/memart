@@ -1,6 +1,78 @@
-import 'dart:convert';
+// import 'dart:convert';
 
 var soundData = [
+  {
+    "title": "ASDF: I am a stegosaurus",
+    "soundPath": "asdf-i-am-a-stegosaurus.mp3",
+    "imagePath": "asdf-i-am-a-stegosaurus.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: I like trains",
+    "soundPath": "asdf-i-like-trains.mp3",
+    "imagePath": "asdf-i-like-trains.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: beep beep I'm a sheep",
+    "soundPath": "asdf-beep-beep.mp3",
+    "imagePath": "asdf-beep-beep.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: beep beep I'm a sheep (funky)",
+    "soundPath": "asdf-beep-beep-funky.mp3",
+    "imagePath": "asdf-beep-beep-funky.jpg",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: die potato",
+    "soundPath": "asdf-die-potato.mp3",
+    "imagePath": "asdf-die-potato.jpg",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: everybody do the flop",
+    "soundPath": "asdf-everybody-do-the-flop.mp3",
+    "imagePath": "asdf-everybody-do-the-flop.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: it's muffin time",
+    "soundPath": "asdf-its-muffin-time.mp3",
+    "imagePath": "asdf-its-muffin-time.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: mine turtle",
+    "soundPath": "asdf-mine-turtle.mp3",
+    "imagePath": "asdf-mine-turtle.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: muffin die die die song",
+    "soundPath": "asdf-muffin-die-die-die.mp3",
+    "imagePath": "asdf-muffin-die-die-die.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: pie flavor",
+    "soundPath": "asdf-pie-flavor.mp3",
+    "imagePath": "asdf-pie-flavor.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: suicidal muffin",
+    "soundPath": "asdf-suicidal-muffin.mp3",
+    "imagePath": "asdf-suicidal-muffin.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: who wants a muffin",
+    "soundPath": "asdf-who-wants-a-muffin.mp3",
+    "imagePath": "asdf-who-wants-a-muffin.png",
+    "searchString": "asdf movie"
+  },
   {
     "title": "Ain't nobody got time for that",
     "soundPath": "AINT NOBODY GOT TIME FOR THAT.mp3",
@@ -355,16 +427,16 @@ var soundData = [
     "searchString": "its over 9000"
   },
   {
-    "title": "JOJO: It was me, DIO!",
-    "soundPath": "38-it-was-me-dio.mp3",
-    "imagePath": "38-it-was-me-dio.jpg",
-    "searchString": "kono dio da jojo"
-  },
-  {
     "title": "JOJO theme",
     "soundPath": "39-jojo.mp3",
     "imagePath": "39-jojo.jpg",
     "searchString": "jojo jotaro"
+  },
+  {
+    "title": "JOJO: It was me, DIO!",
+    "soundPath": "38-it-was-me-dio.mp3",
+    "imagePath": "38-it-was-me-dio.jpg",
+    "searchString": "kono dio da jojo"
   },
   {
     "title": "JOJO: NANI",
@@ -554,12 +626,6 @@ var soundData = [
     "searchString": ""
   },
   {
-    "title": "NANI",
-    "soundPath": "57-nani-meme.mp3",
-    "imagePath": "57-nani-meme.jpg",
-    "searchString": "omae wa mou shindeiru anime you are dead"
-  },
-  {
     "title": "Nani sore",
     "soundPath": "58-nani-soreeeee.mp3",
     "imagePath": "58-nani-soreeeee.png",
@@ -624,6 +690,12 @@ var soundData = [
     "soundPath": "64-oh-hell-no.mp3",
     "imagePath": "64-oh-hell-no.jpg",
     "searchString": "oh hell noooooo"
+  },
+  {
+    "title": "Omae wa mou shindeiru NANI",
+    "soundPath": "57-nani-meme.mp3",
+    "imagePath": "57-nani-meme.png",
+    "searchString": "omae wa mou shindeiru anime you are dead"
   },
   {
     "title": "Pentakill",
@@ -944,7 +1016,7 @@ var soundData = [
     "searchString": "one piece black beard laugh"
   },
   {
-    "title": "Zoidberd woop",
+    "title": "Zoidberg woop",
     "soundPath": "DR ZOIDBERG WOOP.mp3",
     "imagePath": "zoid.jpg",
     "searchString": "futurama cartoon"
@@ -954,4 +1026,5 @@ var soundData = [
 // void main() {
 //   soundData.sort((a, b) => a['title'].compareTo(b['title']));
 //   print(jsonEncode(soundData));
+//   // soundData.forEach((f) => print('- ' + f['title']));
 // }

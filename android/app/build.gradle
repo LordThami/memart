@@ -46,8 +46,10 @@ android {
         applicationId "kakimov.com.memart"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        // versionCode flutterVersionCode.toInteger()
+        // versionName flutterVersionName
+        versionCode 3
+        versionName "1.3.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
