@@ -22,7 +22,8 @@ class MemeSoundboardApp extends StatefulWidget {
 }
 
 class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
-  int _selectedPageId = 0;
+  static final _startingPageId = 0;
+  int _selectedPageId = _startingPageId;
   List<String> _likedSoundPaths = [];
   SharedPreferences _prefs;
 
@@ -77,6 +78,10 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
     await _prefs.setStringList('likedSoundPaths', _likedSoundPaths);
   }
 
+  final _controller = PageController(
+    initialPage: _startingPageId,
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -88,13 +93,16 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
       ),
       home: Scaffold(
         body: SafeArea(
-          child: AnimatedSwitcher(
-              duration: Duration(milliseconds: 100),
-              child: [
-                PlayerList(getAllSounds(), _handleLikePress),
-                SearchPage(getAllSounds(), _handleLikePress),
-                FavoritesPage(getLikedSounds(), _handleLikePress),
-              ].elementAt(_selectedPageId)),
+          child: PageView(
+            physics: NeverScrollableScrollPhysics(),
+            controller: _controller,
+            children: [
+              PlayerList(getAllSounds(), _handleLikePress, keyName: 'home'),
+              SearchPage(getAllSounds(), _handleLikePress),
+              FavoritesPage(getLikedSounds(), _handleLikePress,
+                  keyName: 'favorites'),
+            ],
+          ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
@@ -129,6 +137,7 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
           selectedLabelStyle: TextStyle(height: 1.3),
           currentIndex: _selectedPageId,
           onTap: (newId) => setState(() {
+            _controller.jumpToPage(newId);
             _selectedPageId = newId;
           }),
         ),

@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'player_list.dart';
 
 class FavoritesPage extends StatelessWidget {
-  FavoritesPage(this._sounds, this._handleLikePress);
+  FavoritesPage(this._sounds, this._handleLikePress, {@required this.keyName});
 
   final List<Map<String, String>> _sounds;
   final Function _handleLikePress;
+  final String keyName;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,7 @@ class FavoritesPage extends StatelessWidget {
             _sounds,
             _handleLikePress,
             stopOnLikeTap: true,
+            keyName: keyName,
           )
         : Center(
             child: Padding(

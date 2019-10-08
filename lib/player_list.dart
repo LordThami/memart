@@ -8,6 +8,7 @@ class PlayerList extends StatefulWidget {
   PlayerList(
     this._sounds,
     this._handleLikePress, {
+    @required this.keyName,
     bool stopOnLikeTap = false,
   }) {
     this.stopOnLikeTap = stopOnLikeTap;
@@ -15,6 +16,7 @@ class PlayerList extends StatefulWidget {
 
   final List<Map<String, String>> _sounds;
   final Function _handleLikePress;
+  final String keyName;
   bool stopOnLikeTap = true;
 
   @override
@@ -66,36 +68,37 @@ class _PlayerListState extends State<PlayerList> {
         buttonColor: Colors.transparent,
         textTheme: ButtonTextTheme.normal,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-        child: GridView.count(
-          mainAxisSpacing: 16.0,
-          crossAxisSpacing: 16.0,
-          childAspectRatio: 1.0,
-          crossAxisCount: 2,
+        child: GridView.builder(
+          itemCount: widget._sounds.length,
+          key: PageStorageKey(widget.keyName),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 16.0,
+            crossAxisSpacing: 16.0,
+            childAspectRatio: 1.0,
+          ),
           padding: EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 24.0),
-          children: widget._sounds
-              .asMap()
-              .map((id, sound) => MapEntry(
-                  id,
-                  Player(
-                    isPlaying: _playingSoundId == id,
-                    isLiked: sound['liked'] == 'true',
-                    title: sound['title'],
-                    imagePath: sound['imagePath'],
-                    handlePress: () {
-                      handlePress(id);
-                    },
-                    handleLikePress: () async {
-                      widget._handleLikePress(sound['soundPath']);
-                      if (widget.stopOnLikeTap) {
-                        await _player.stop();
-                        setState(() {
-                          _playingSoundId = null;
-                        });
-                      }
-                    },
-                  )))
-              .values
-              .toList(),
+          itemBuilder: (BuildContext context, int id) {
+            var sound = widget._sounds[id];
+            return Player(
+              isPlaying: _playingSoundId == id,
+              isLiked: sound['liked'] == 'true',
+              title: sound['title'],
+              imagePath: sound['imagePath'],
+              handlePress: () {
+                handlePress(id);
+              },
+              handleLikePress: () async {
+                widget._handleLikePress(sound['soundPath']);
+                if (widget.stopOnLikeTap) {
+                  await _player.stop();
+                  setState(() {
+                    _playingSoundId = null;
+                  });
+                }
+              },
+            );
+          },
         ),
       ),
     );
