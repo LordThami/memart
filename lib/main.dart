@@ -104,42 +104,48 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(
-                _selectedPageId == 0
-                    ? CustomIcons.home
-                    : CustomIcons.home_empty,
-              ),
-              title: Text('Home'),
+        bottomNavigationBar: Container(
+          color: Colors.black,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: BottomNavigationBar(
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    _selectedPageId == 0
+                        ? CustomIcons.home
+                        : CustomIcons.home_empty,
+                  ),
+                  title: Text('Home'),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    _selectedPageId == 1 ? Icons.search : Icons.search,
+                  ),
+                  title: Text('Search'),
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    _selectedPageId == 2
+                        ? CustomIcons.heart
+                        : CustomIcons.heart_empty,
+                  ),
+                  title: Text('Favorites'),
+                ),
+              ],
+              backgroundColor: Colors.black,
+              iconSize: 28.0,
+              unselectedFontSize: 12.0,
+              selectedFontSize: 12.0,
+              unselectedLabelStyle: TextStyle(height: 1.3),
+              selectedLabelStyle: TextStyle(height: 1.3),
+              currentIndex: _selectedPageId,
+              onTap: (newId) => setState(() {
+                _controller.jumpToPage(newId);
+                _selectedPageId = newId;
+              }),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                _selectedPageId == 1 ? Icons.search : Icons.search,
-              ),
-              title: Text('Search'),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                _selectedPageId == 2
-                    ? CustomIcons.heart
-                    : CustomIcons.heart_empty,
-              ),
-              title: Text('Favorites'),
-            ),
-          ],
-          backgroundColor: Colors.black,
-          iconSize: 28.0,
-          unselectedFontSize: 12.0,
-          selectedFontSize: 12.0,
-          unselectedLabelStyle: TextStyle(height: 1.3),
-          selectedLabelStyle: TextStyle(height: 1.3),
-          currentIndex: _selectedPageId,
-          onTap: (newId) => setState(() {
-            _controller.jumpToPage(newId);
-            _selectedPageId = newId;
-          }),
+          ),
         ),
       ),
     );
