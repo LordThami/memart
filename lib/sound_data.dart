@@ -451,6 +451,18 @@ var soundData = [
     "searchString": "joseph nice jojo"
   },
   {
+    "title": "JOJO: Nigerundayo Smokey!",
+    "soundPath": "nigerundayo-smokey.mp3",
+    "imagePath": "nigerundayo-smokey.png",
+    "searchString": "joseph run smokey jojo"
+  },
+  {
+    "title": "JOJO: NO NO NO",
+    "soundPath": "no-no-no.mp3",
+    "imagePath": "no-no-no.jpg",
+    "searchString": "jotaro no no no-no jojo"
+  },
+  {
     "title": "JOJO: OH NO",
     "soundPath": "65-jojo-oh-no.mp3",
     "imagePath": "65-jojo-oh-no.jpg",
@@ -460,7 +472,7 @@ var soundData = [
     "title": "JOJO: YES YES YES",
     "soundPath": "109-jojo-yes-yes.mp3",
     "imagePath": "109-jojo-yes-yes.png",
-    "searchString": "jojo anime yes yes yes jotaro"
+    "searchString": "jojo anime yes yes-yes jotaro"
   },
   {
     "title": "JOJO: Za warudo",
@@ -762,6 +774,12 @@ var soundData = [
     "soundPath": "81-running.mp3",
     "imagePath": "81-running.jpg",
     "searchString": "duck running"
+  },
+  {
+    "title": "Screaming squirrel",
+    "soundPath": "screaming-squirrel.mp3",
+    "imagePath": "screaming-squirrel.png",
+    "searchString": "screaming animal"
   },
   {
     "title": "SUCC",
