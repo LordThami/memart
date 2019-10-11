@@ -40,10 +40,10 @@ class PlayerList extends StatelessWidget {
                   title: sound['title'],
                   imagePath: sound['imagePath'],
                   handlePress: () {
-                    if (isPlaying)
-                      model.stop();
-                    else
-                      model.play(soundPath);
+                    // if (isPlaying)
+                    //   model.stop();
+                    // else
+                    model.play(soundPath);
                   },
                   handleLikePress: () async {
                     if (isLiked)

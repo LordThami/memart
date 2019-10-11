@@ -62,4 +62,8 @@ class AppModel extends ChangeNotifier {
   bool isLiked(String soundPath) {
     return _likedSoundPaths.contains(soundPath);
   }
+
+  List<Map<String, String>> getLikedSounds() {
+    return sounds.where((sound) => isLiked(sound['soundPath'])).toList();
+  }
 }

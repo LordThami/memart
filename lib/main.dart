@@ -49,9 +49,8 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
             children: [
               HomePage(),
               Text('search'),
-              Text('favorites'),
               // SearchPage(),
-              // FavoritesPage(),
+              FavoritesPage(),
             ],
           ),
         ),

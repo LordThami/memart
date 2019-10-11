@@ -53,7 +53,7 @@ class Player extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.black45,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
                   border: Border.all(
                     width: 5,
                     color: Theme.of(context).accentColor,
