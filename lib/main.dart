@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:meme_soundboard/app_model.dart';
+import 'package:provider/provider.dart';
 import 'custom_icons_icons.dart';
-import 'sound_data.dart';
-import 'player_list.dart';
+import 'home_page.dart';
 import 'favorites_page.dart';
 import 'search_page.dart';
 
@@ -13,7 +13,10 @@ void main() {
     statusBarIconBrightness: Brightness.light,
     systemNavigationBarColor: Colors.black,
   ));
-  runApp(MemeSoundboardApp());
+  runApp(ChangeNotifierProvider(
+    builder: (context) => AppModel(),
+    child: MemeSoundboardApp(),
+  ));
 }
 
 class MemeSoundboardApp extends StatefulWidget {
@@ -22,61 +25,8 @@ class MemeSoundboardApp extends StatefulWidget {
 }
 
 class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
-  static final _startingPageId = 0;
+  static const int _startingPageId = 0;
   int _selectedPageId = _startingPageId;
-  List<String> _likedSoundPaths = [];
-  SharedPreferences _prefs;
-
-  List<Map<String, String>> getAllSounds() {
-    return soundData.map((sound) {
-      if (_likedSoundPaths.contains(sound['soundPath']))
-        sound['liked'] = 'true';
-      else
-        sound['liked'] = 'false';
-      return sound;
-    }).toList();
-  }
-
-  List<Map<String, String>> getLikedSounds() {
-    var liked = soundData
-        .map((sound) {
-          if (_likedSoundPaths.contains(sound['soundPath']))
-            sound['liked'] = 'true';
-          else
-            sound['liked'] = 'false';
-          return sound;
-        })
-        .where((sound) => _likedSoundPaths.contains(sound['soundPath']))
-        .toList();
-    liked.sort((a, b) =>
-        _likedSoundPaths.indexOf(a['soundPath']) -
-        _likedSoundPaths.indexOf(b['soundPath']));
-    return liked;
-  }
-
-  Future<void> initPreferences() async {
-    _prefs = await SharedPreferences.getInstance();
-    setState(() {
-      _likedSoundPaths = _prefs.getStringList('likedSoundPaths') ?? [];
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    initPreferences();
-  }
-
-  void _handleLikePress(String soundPath) async {
-    setState(() {
-      if (_likedSoundPaths.contains(soundPath)) {
-        _likedSoundPaths.remove(soundPath);
-      } else {
-        _likedSoundPaths.add(soundPath);
-      }
-    });
-    await _prefs.setStringList('likedSoundPaths', _likedSoundPaths);
-  }
 
   final _controller = PageController(
     initialPage: _startingPageId,
@@ -97,10 +47,11 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
             physics: NeverScrollableScrollPhysics(),
             controller: _controller,
             children: [
-              PlayerList(getAllSounds(), _handleLikePress, keyName: 'home'),
-              SearchPage(getAllSounds(), _handleLikePress),
-              FavoritesPage(getLikedSounds(), _handleLikePress,
-                  keyName: 'favorites'),
+              HomePage(),
+              Text('search'),
+              Text('favorites'),
+              // SearchPage(),
+              // FavoritesPage(),
             ],
           ),
         ),

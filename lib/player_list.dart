@@ -1,65 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
-import 'package:audioplayers/audioplayers.dart';
+import 'package:meme_soundboard/app_model.dart';
+import 'package:provider/provider.dart';
 import 'only_one_pointer_recorgnizer.dart';
 import 'player.dart';
 
-class PlayerList extends StatefulWidget {
-  PlayerList(
-    this._sounds,
-    this._handleLikePress, {
-    @required this.keyName,
-    bool stopOnLikeTap = false,
-  }) {
-    this.stopOnLikeTap = stopOnLikeTap;
-  }
+class PlayerList extends StatelessWidget {
+  PlayerList(this._sounds, this._keyName);
 
-  final List<Map<String, String>> _sounds;
-  final Function _handleLikePress;
-  final String keyName;
-  bool stopOnLikeTap = true;
-
-  @override
-  _PlayerListState createState() => _PlayerListState();
-}
-
-class _PlayerListState extends State<PlayerList> {
-  AudioCache _audioCache;
-  AudioPlayer _player;
-  int _playingSoundId;
-
-  @override
-  void initState() {
-    super.initState();
-    _audioCache = AudioCache(prefix: 'sounds/');
-    _audioCache
-        .loadAll(widget._sounds.map((sound) => sound['soundPath']).toList());
-    _playingSoundId = null;
-  }
-
-  @override
-  void dispose() async {
-    await _player.stop();
-    super.dispose();
-  }
-
-  void handlePress(int pressedSoundId) async {
-    if (_playingSoundId != null) await _player.stop();
-    if (_playingSoundId != pressedSoundId) {
-      _player =
-          await _audioCache.play(widget._sounds[pressedSoundId]['soundPath']);
-      _player.onPlayerCompletion.listen((_) => setState(() {
-            _playingSoundId = null;
-          }));
-      setState(() {
-        _playingSoundId = pressedSoundId;
-      });
-    } else {
-      setState(() {
-        _playingSoundId = null;
-      });
-    }
-  }
+  final List<Map<String, dynamic>> _sounds;
+  final String _keyName;
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +18,8 @@ class _PlayerListState extends State<PlayerList> {
         textTheme: ButtonTextTheme.normal,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         child: GridView.builder(
-          itemCount: widget._sounds.length,
-          key: PageStorageKey(widget.keyName),
+          itemCount: _sounds.length,
+          key: PageStorageKey(_keyName),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: 16.0,
@@ -79,23 +28,30 @@ class _PlayerListState extends State<PlayerList> {
           ),
           padding: EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 24.0),
           itemBuilder: (BuildContext context, int id) {
-            var sound = widget._sounds[id];
-            return Player(
-              isPlaying: _playingSoundId == id,
-              isLiked: sound['liked'] == 'true',
-              title: sound['title'],
-              imagePath: sound['imagePath'],
-              handlePress: () {
-                handlePress(id);
-              },
-              handleLikePress: () async {
-                widget._handleLikePress(sound['soundPath']);
-                if (widget.stopOnLikeTap) {
-                  await _player.stop();
-                  setState(() {
-                    _playingSoundId = null;
-                  });
-                }
+            var sound = _sounds[id];
+            return Consumer<AppModel>(
+              builder: (context, model, child) {
+                String soundPath = sound['soundPath'];
+                bool isPlaying = model.isPlaying(sound['soundPath']);
+                bool isLiked = model.isLiked(sound['soundPath']);
+                return Player(
+                  isPlaying: isPlaying,
+                  isLiked: isLiked,
+                  title: sound['title'],
+                  imagePath: sound['imagePath'],
+                  handlePress: () {
+                    if (isPlaying)
+                      model.stop();
+                    else
+                      model.play(soundPath);
+                  },
+                  handleLikePress: () async {
+                    if (isLiked)
+                      model.unlike(soundPath);
+                    else
+                      model.like(soundPath);
+                  },
+                );
               },
             );
           },
