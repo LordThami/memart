@@ -65,5 +65,43 @@ class AppModel extends ChangeNotifier {
 
   List<Map<String, String>> getLikedSounds() {
     return sounds.where((sound) => isLiked(sound['soundPath'])).toList();
+    // iterate over _likedSounds and return a list
+    // make a map soundPath -> soundObject
+  }
+
+  List<Map<String, String>> getSearchResults(String input) {
+    if (input.length == 0) return null;
+    Set<String> resultsFileNames = Set();
+    List<Map<String, String>> results = [];
+    [
+      {
+        'searchProperty': 'title',
+        'regex': r'^' + input,
+      },
+      {
+        'searchProperty': 'title',
+        'regex': r'\W' + input,
+      },
+      {
+        'searchProperty': 'searchString',
+        'regex': r'(^|\W)' + input,
+      },
+    ].forEach((searchRules) {
+      var regex = RegExp(
+        searchRules['regex'],
+        caseSensitive: false,
+      );
+
+      sounds.forEach((sound) {
+        var searchProperty = sound[searchRules['searchProperty']] ?? '';
+
+        if (resultsFileNames.contains(sound['soundPath']) == false &&
+            regex.hasMatch(searchProperty)) {
+          results.add(sound);
+          resultsFileNames.add(sound['soundPath']);
+        }
+      });
+    });
+    return results;
   }
 }

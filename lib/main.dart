@@ -48,8 +48,7 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
             controller: _controller,
             children: [
               HomePage(),
-              Text('search'),
-              // SearchPage(),
+              SearchPage(),
               FavoritesPage(),
             ],
           ),
