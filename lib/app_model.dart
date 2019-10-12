@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'sound_data.dart';
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 class AppModel extends ChangeNotifier {
   static const String LIKED_SOUND_PATH_KEY = 'likedSoundPaths';
@@ -108,5 +110,14 @@ class AppModel extends ChangeNotifier {
       });
     });
     return results;
+  }
+
+  Future<void> share() async {
+    var title = getSelectedSoundTitle();
+    final ByteData bytes =
+        await rootBundle.load('assets/sounds/$selectedSoundPath');
+    await Share.file('Share "$title"', selectedSoundPath,
+        bytes.buffer.asUint8List(), 'audio/mpeg',
+        text: 'Shared with Memart.');
   }
 }

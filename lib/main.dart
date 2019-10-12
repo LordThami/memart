@@ -48,11 +48,11 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
         body: AppBody(controller: _controller),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF202122),
+            color: Color(0xFF35383C),
             border: Border(
                 top: BorderSide(
               width: 1.0,
-              color: Colors.black,
+              color: Color(0xFF1F1F1F),
             )),
           ),
           child: Padding(
@@ -85,8 +85,8 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
               backgroundColor: Colors.transparent,
               elevation: 0,
               iconSize: 28.0,
-              unselectedFontSize: 12.0,
-              selectedFontSize: 12.0,
+              unselectedFontSize: 11.0,
+              selectedFontSize: 11.0,
               unselectedLabelStyle: TextStyle(height: 1.3),
               selectedLabelStyle: TextStyle(height: 1.3),
               currentIndex: _selectedPageId,
@@ -116,11 +116,11 @@ class AppBody extends StatelessWidget {
     return SlidingUpPanel(
       panel: Panel(),
       minHeight: 64,
-      maxHeight: 200,
+      maxHeight: 144,
       parallaxEnabled: true,
       backdropEnabled: true,
       // color: Color(0xFF383A3D),
-      color: Color(0xFF202122),
+      color: Color(0xFF35383C),
       boxShadow: const <BoxShadow>[
         BoxShadow(blurRadius: 4.0, color: Color.fromRGBO(0, 0, 0, 0.6))
       ],
@@ -171,9 +171,21 @@ class Panel extends StatelessWidget {
             BottomPlayer(),
           ],
         ),
-        Container(
-          height: 1.0,
-          color: Colors.black,
+        Expanded(
+          child: Container(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: RaisedButton(
+                  color: Colors.pink,
+                  child: Text('Share this sound'),
+                  onPressed: () async {
+                    Provider.of<AppModel>(context, listen: false).share();
+                  },
+                ),
+              ),
+            ),
+          ),
         ),
       ],
     );
@@ -198,10 +210,13 @@ class BottomPlayer extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Center(
-              child: Text(
-                selectedSoundTitle,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 4.0),
+                child: Text(
+                  selectedSoundTitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
