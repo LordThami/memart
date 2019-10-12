@@ -22,7 +22,7 @@ class Player extends StatelessWidget {
   Widget build(BuildContext context) {
     return RaisedButton(
       clipBehavior: Clip.antiAlias,
-      elevation: 10,
+      elevation: 2,
       padding: EdgeInsets.all(0),
       onPressed: handlePress,
       child: Stack(
