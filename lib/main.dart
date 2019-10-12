@@ -189,6 +189,7 @@ class BottomPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<AppModel>(builder: (context, model, child) {
       var selectedSoundTitle = model.getSelectedSoundTitle();
+      var isLiked = model.isLiked(model.selectedSoundPath);
 
       if (selectedSoundTitle == null) return Container();
 
@@ -206,33 +207,65 @@ class BottomPlayer extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: SizedBox(
-                  height: 32.0,
-                  width: 32.0,
-                  child: OutlineButton(
-                    padding: EdgeInsets.all(0.0),
-                    child: model.isPlaying
-                        ? Icon(
-                            Icons.stop,
-                            size: 16.0,
-                          )
-                        : Icon(
-                            Icons.play_arrow,
-                            size: 16.0,
-                          ),
-                    onPressed: () =>
-                        model.isPlaying ? model.stop() : model.play(),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      style: BorderStyle.solid,
-                      width: 1,
+              child: SizedBox(
+                height: 56.0,
+                width: 56.0,
+                child: FlatButton(
+                  padding: EdgeInsets.all(0.0),
+                  child: Container(
+                    height: 32.0,
+                    width: 32.0,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1.0,
+                        color: Colors.white,
+                      ),
+                      shape: BoxShape.circle,
                     ),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0)),
+                    child: Center(
+                      child: model.isPlaying
+                          ? Icon(
+                              Icons.stop,
+                              size: 20.0,
+                            )
+                          : Icon(
+                              Icons.play_arrow,
+                              size: 20.0,
+                            ),
+                    ),
                   ),
+                  onPressed: () =>
+                      model.isPlaying ? model.stop() : model.play(),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0)),
                 ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Stack(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Icon(
+                      CustomIcons.heart,
+                      color: isLiked ? Colors.pink : Colors.black26,
+                      size: 24.0,
+                    ),
+                  ),
+                  IconButton(
+                    splashColor: Colors.transparent,
+                    padding: const EdgeInsets.all(16.0),
+                    icon: Icon(
+                      CustomIcons.heart_empty,
+                      color: isLiked ? Colors.white : Colors.white70,
+                      size: 24.0,
+                    ),
+                    onPressed: () => isLiked
+                        ? model.unlike(model.selectedSoundPath)
+                        : model.like(model.selectedSoundPath),
+                  ),
+                ],
               ),
             ),
           ],
