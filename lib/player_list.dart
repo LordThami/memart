@@ -21,36 +21,42 @@ class PlayerList extends StatelessWidget {
           itemCount: _sounds.length,
           key: PageStorageKey(_keyName),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: 3,
             mainAxisSpacing: 16.0,
             crossAxisSpacing: 16.0,
             childAspectRatio: 1.0,
           ),
-          padding: EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 24.0),
+          padding: EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 144.0),
           itemBuilder: (BuildContext context, int id) {
             var sound = _sounds[id];
             return Consumer<AppModel>(
               builder: (context, model, child) {
                 String soundPath = sound['soundPath'];
-                bool isPlaying = model.isPlaying(sound['soundPath']);
+                bool isSelected = model.selectedSoundPath == sound['soundPath'];
+                bool isPlaying = model.isPlaying;
                 bool isLiked = model.isLiked(sound['soundPath']);
-                return Player(
-                  isPlaying: isPlaying,
-                  isLiked: isLiked,
-                  title: sound['title'],
-                  imagePath: sound['imagePath'],
-                  handlePress: () {
-                    // if (isPlaying)
-                    //   model.stop();
-                    // else
-                    model.play(soundPath);
-                  },
-                  handleLikePress: () async {
-                    if (isLiked)
-                      model.unlike(soundPath);
-                    else
-                      model.like(soundPath);
-                  },
+                return AnimatedOpacity(
+                  opacity: isPlaying && !isSelected ? 0.5 : 1,
+                  duration: Duration(milliseconds: 200),
+                  child: Player(
+                    isSelected: isSelected,
+                    isPlaying: isPlaying,
+                    isLiked: isLiked,
+                    title: sound['title'],
+                    imagePath: sound['imagePath'],
+                    handlePress: () {
+                      // if (isPlaying)
+                      //   model.stop();
+                      // else
+                      model.play(soundPath);
+                    },
+                    handleLikePress: () async {
+                      if (isLiked)
+                        model.unlike(soundPath);
+                      else
+                        model.like(soundPath);
+                    },
+                  ),
                 );
               },
             );

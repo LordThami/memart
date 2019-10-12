@@ -115,18 +115,18 @@ class AppBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SlidingUpPanel(
       panel: Panel(),
-      minHeight: 80,
+      minHeight: 64,
       maxHeight: 200,
       parallaxEnabled: true,
       backdropEnabled: true,
-      // color: Color(0xFF2A2C2E),
+      // color: Color(0xFF383A3D),
       color: Color(0xFF202122),
       boxShadow: const <BoxShadow>[
         BoxShadow(blurRadius: 4.0, color: Color.fromRGBO(0, 0, 0, 0.6))
       ],
-      borderRadius: BorderRadius.only(
-          topLeft: const Radius.circular(32.0),
-          topRight: const Radius.circular(32.0)),
+      // borderRadius: BorderRadius.only(
+      //     topLeft: const Radius.circular(32.0),
+      //     topRight: const Radius.circular(32.0)),
       body: SafeArea(
         child: PageView(
           physics: NeverScrollableScrollPhysics(),
@@ -151,23 +151,93 @@ class Panel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(top: 10.0),
-          child: Container(
-            height: 3,
-            width: 40,
-            decoration: ShapeDecoration(
-              color: Colors.white24,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0)),
+        Stack(
+          children: <Widget>[
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Container(
+                  height: 3,
+                  width: 40,
+                  decoration: ShapeDecoration(
+                    color: Colors.white24,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                  ),
+                ),
+              ),
             ),
-          ),
+            BottomPlayer(),
+          ],
         ),
         Container(
-          height: 58.0,
-          child: Center(child: Text('Title')),
+          height: 1.0,
+          color: Colors.black,
         ),
       ],
     );
+  }
+}
+
+class BottomPlayer extends StatelessWidget {
+  const BottomPlayer({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<AppModel>(builder: (context, model, child) {
+      var selectedSoundTitle = model.getSelectedSoundTitle();
+
+      if (selectedSoundTitle == null) return Container();
+
+      return Container(
+        height: 64,
+        child: Stack(
+          children: <Widget>[
+            Center(
+              child: Text(
+                selectedSoundTitle,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: SizedBox(
+                  height: 32.0,
+                  width: 32.0,
+                  child: OutlineButton(
+                    padding: EdgeInsets.all(0.0),
+                    child: model.isPlaying
+                        ? Icon(
+                            Icons.stop,
+                            size: 16.0,
+                          )
+                        : Icon(
+                            Icons.play_arrow,
+                            size: 16.0,
+                          ),
+                    onPressed: () =>
+                        model.isPlaying ? model.stop() : model.play(),
+                    borderSide: BorderSide(
+                      color: Colors.white,
+                      style: BorderStyle.solid,
+                      width: 1,
+                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0)),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    });
   }
 }
