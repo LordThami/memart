@@ -16,6 +16,8 @@ class AppModel extends ChangeNotifier {
   bool isPlaying = false;
   List<Map<String, String>> sounds;
 
+  String searchString = '';
+
   AppModel() {
     _audioCache = AudioCache(prefix: 'sounds/');
     sounds = soundData;
@@ -77,6 +79,7 @@ class AppModel extends ChangeNotifier {
   }
 
   List<Map<String, String>> getSearchResults(String input) {
+    searchString = input;
     if (input.length == 0) return null;
     Set<String> resultsFileNames = Set();
     List<Map<String, String>> results = [];

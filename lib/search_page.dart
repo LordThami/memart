@@ -9,11 +9,22 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  String _inputValue = '';
   List<Map<String, String>> _foundSounds = [];
+  final TextEditingController _inputController = new TextEditingController();
+
+  @override
+  void initState() {
+    var searchString =
+        Provider.of<AppModel>(context, listen: false).searchString;
+    _inputController.text = searchString;
+    _foundSounds = Provider.of<AppModel>(context, listen: false)
+        .getSearchResults(searchString);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    var searchString = Provider.of<AppModel>(context).searchString;
     return Center(
       child: Column(
         children: <Widget>[
@@ -22,13 +33,14 @@ class _SearchPageState extends State<SearchPage> {
               color: Colors.white,
               fontSize: 18.0,
             ),
-            autofocus: true,
+            // autofocus: true,
+            controller: _inputController,
             cursorColor: Colors.white,
             decoration: InputDecoration(
               hintText: 'Search by title or theme',
               prefixIcon: Icon(Icons.search),
               contentPadding: EdgeInsets.all(16.0),
-              fillColor: Colors.grey[900],
+              fillColor: Colors.grey[800],
               filled: true,
               border: InputBorder.none,
             ),
@@ -50,11 +62,11 @@ class _SearchPageState extends State<SearchPage> {
               },
               child: (_foundSounds ?? []).length > 0
                   ? PlayerList(_foundSounds, 'search')
-                  : _inputValue.length > 0
+                  : searchString.length > 0
                       ? Padding(
                           padding: const EdgeInsets.all(24.0),
                           child: Text(
-                            'No results found for "$_inputValue"',
+                            'No results found for "$searchString"',
                             style: TextStyle(fontSize: 16.0),
                             textAlign: TextAlign.center,
                           ),
