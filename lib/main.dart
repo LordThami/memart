@@ -234,7 +234,7 @@ class BottomPlayer extends StatelessWidget {
                     width: 32.0,
                     decoration: BoxDecoration(
                       border: Border.all(
-                        width: 1.0,
+                        width: 2.0,
                         color: Colors.white,
                       ),
                       shape: BoxShape.circle,
