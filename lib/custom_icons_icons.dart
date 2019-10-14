@@ -28,4 +28,6 @@ class CustomIcons {
   static const IconData heart = const IconData(0xe801, fontFamily: _kFontFam);
   static const IconData home = const IconData(0xe805, fontFamily: _kFontFam);
   static const IconData home_empty = const IconData(0xe806, fontFamily: _kFontFam);
+  static const IconData search = const IconData(0xe819, fontFamily: _kFontFam);
+  static const IconData search_empty = const IconData(0xe81a, fontFamily: _kFontFam);
 }

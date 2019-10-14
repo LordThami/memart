@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meme_soundboard/app_model.dart';
+import 'package:meme_soundboard/custom_icons_icons.dart';
 import 'package:provider/provider.dart';
 import 'player_list.dart';
 
@@ -33,14 +34,13 @@ class _SearchPageState extends State<SearchPage> {
               color: Colors.white,
               fontSize: 18.0,
             ),
-            // autofocus: true,
             controller: _inputController,
             cursorColor: Colors.white,
             decoration: InputDecoration(
               hintText: 'Search by title or theme',
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: Icon(CustomIcons.search_empty),
               contentPadding: EdgeInsets.all(16.0),
-              fillColor: Colors.grey[800],
+              fillColor: Colors.white30,
               filled: true,
               border: InputBorder.none,
             ),

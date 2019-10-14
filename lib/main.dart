@@ -69,7 +69,9 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
-                    _selectedPageId == 1 ? Icons.search : Icons.search,
+                    _selectedPageId == 1
+                        ? CustomIcons.search
+                        : CustomIcons.search_empty,
                   ),
                   title: Text('Search'),
                 ),
