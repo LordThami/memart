@@ -8,6 +8,7 @@ import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 class AppModel extends ChangeNotifier {
   static const String LIKED_SOUND_PATH_KEY = 'likedSoundPaths';
+  static const String SELECTED_SOUND_PATH_KEY = 'selectedSoundPath';
   SharedPreferences _prefs;
   List<String> _likedSoundPaths = [];
   AudioCache _audioCache;
@@ -21,15 +22,19 @@ class AppModel extends ChangeNotifier {
   AppModel() {
     _audioCache = AudioCache(prefix: 'sounds/');
     sounds = soundData;
-    loadLikes();
+    loadPrefs().then((_) {
+      _likedSoundPaths = _prefs.getStringList(LIKED_SOUND_PATH_KEY) ?? [];
+      selectedSoundPath =
+          _prefs.getString(SELECTED_SOUND_PATH_KEY) ?? sounds[0]['soundPath'];
+      notifyListeners();
+    });
   }
 
-  Future<void> loadLikes() async {
+  Future<void> loadPrefs() async {
     _prefs = await SharedPreferences.getInstance();
-    _likedSoundPaths = _prefs.getStringList(LIKED_SOUND_PATH_KEY) ?? [];
   }
 
-  Future<void> play([String newSoundPath]) async {
+  Future<bool> play([String newSoundPath]) async {
     if (newSoundPath == null) return play(selectedSoundPath);
     if (selectedSoundPath != null && _player != null) await _player.stop();
     selectedSoundPath = newSoundPath;
@@ -40,6 +45,7 @@ class AppModel extends ChangeNotifier {
       isPlaying = false;
       notifyListeners();
     });
+    return _prefs.setString(SELECTED_SOUND_PATH_KEY, selectedSoundPath);
   }
 
   Future<int> stop() async {
