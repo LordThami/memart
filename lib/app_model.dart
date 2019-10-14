@@ -16,12 +16,18 @@ class AppModel extends ChangeNotifier {
   String selectedSoundPath;
   bool isPlaying = false;
   List<Map<String, String>> sounds;
+  Map<String, Map<String, String>> _soundLookup;
 
   String searchString = '';
 
   AppModel() {
     _audioCache = AudioCache(prefix: 'sounds/');
     sounds = soundData;
+
+    // generate sound lookup map
+    _soundLookup = Map();
+    soundData.forEach((sound) => _soundLookup[sound['soundPath']] = sound);
+
     loadPrefs().then((_) {
       _likedSoundPaths = _prefs.getStringList(LIKED_SOUND_PATH_KEY) ?? [];
       selectedSoundPath =
@@ -73,9 +79,9 @@ class AppModel extends ChangeNotifier {
   }
 
   List<Map<String, String>> getLikedSounds() {
-    return sounds.where((sound) => isLiked(sound['soundPath'])).toList();
-    // iterate over _likedSounds and return a list
-    // make a soundMap soundPath -> soundObject
+    return _likedSoundPaths
+        .map((soundPath) => _soundLookup[soundPath])
+        .toList();
   }
 
   String getSelectedSoundTitle() {
