@@ -129,9 +129,9 @@ class AppBody extends StatelessWidget {
       boxShadow: const <BoxShadow>[
         BoxShadow(blurRadius: 4.0, color: Color.fromRGBO(0, 0, 0, 0.6))
       ],
-      // borderRadius: BorderRadius.only(
-      //     topLeft: const Radius.circular(32.0),
-      //     topRight: const Radius.circular(32.0)),
+      borderRadius: BorderRadius.only(
+          topLeft: const Radius.circular(16.0),
+          topRight: const Radius.circular(16.0)),
       body: SafeArea(
         child: PageView(
           physics: NeverScrollableScrollPhysics(),
