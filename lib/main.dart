@@ -68,10 +68,13 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
                   title: Text('Home'),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(
-                    _selectedPageId == 1
-                        ? CustomIcons.search
-                        : CustomIcons.search_empty,
+                  icon: Padding(
+                    padding: const EdgeInsets.only(right: 1.5),
+                    child: Icon(
+                      _selectedPageId == 1
+                          ? CustomIcons.search
+                          : CustomIcons.search_empty,
+                    ),
                   ),
                   title: Text('Search'),
                 ),
@@ -89,8 +92,8 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
               iconSize: 28.0,
               unselectedFontSize: 11.0,
               selectedFontSize: 11.0,
-              unselectedLabelStyle: TextStyle(height: 1.3),
-              selectedLabelStyle: TextStyle(height: 1.3),
+              unselectedLabelStyle: TextStyle(height: 1.4),
+              selectedLabelStyle: TextStyle(height: 1.4),
               currentIndex: _selectedPageId,
               onTap: (newId) => setState(() {
                 _controller.jumpToPage(newId);
