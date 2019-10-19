@@ -39,6 +39,19 @@ class _SearchPageState extends State<SearchPage> {
             decoration: InputDecoration(
               hintText: 'Search by title or theme',
               prefixIcon: Icon(CustomIcons.search_empty),
+              suffixIcon: searchString.length > 0
+                  ? IconButton(
+                      icon: Icon(Icons.close),
+                      onPressed: () {
+                        _inputController.text = '';
+                        setState(() {
+                          _foundSounds =
+                              Provider.of<AppModel>(context, listen: false)
+                                  .getSearchResults('');
+                        });
+                      },
+                    )
+                  : null,
               contentPadding: EdgeInsets.all(16.0),
               fillColor: Colors.white30,
               filled: true,
