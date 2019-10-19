@@ -1,4 +1,4 @@
-$files = Get-ChildItem ".\assets\images\asdf"
+$files = Get-ChildItem ".\assets\images\5"
 
 foreach ($file in $files) {
     Write-Host "{"

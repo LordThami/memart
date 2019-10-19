@@ -122,7 +122,7 @@ class AppBody extends StatelessWidget {
       panel: Panel(),
       minHeight: 64,
       maxHeight: 144,
-      parallaxEnabled: true,
+      // parallaxEnabled: true,
       backdropEnabled: true,
       // color: Color(0xFF383A3D),
       color: Color(0xFF35383C),
