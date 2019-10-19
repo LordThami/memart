@@ -155,7 +155,7 @@ var soundData = [
     'title': 'I am your father',
     'soundPath': 'father.mp3',
     'imagePath': 'father.jpg',
-    'searchString': '',
+    'searchString': 'darth vader star wars',
   },
   {
     'title': 'Finish him',
@@ -1211,7 +1211,7 @@ var soundData = [
     "title": "Noooooo",
     "soundPath": "61-noooooooooo.mp3",
     "imagePath": "61-noooooooooo.jpg",
-    "searchString": "dart vader noooo star wars"
+    "searchString": "darth vader noooo star wars"
   },
   {
     "title": "Noot noot",

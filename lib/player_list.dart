@@ -49,12 +49,7 @@ class PlayerList extends StatelessWidget {
                       //   model.stop();
                       // else
                       model.play(soundPath);
-                    },
-                    handleLikePress: () async {
-                      if (isLiked)
-                        model.unlike(soundPath);
-                      else
-                        model.like(soundPath);
+                      FocusScope.of(context).unfocus();
                     },
                   ),
                 );

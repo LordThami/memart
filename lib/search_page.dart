@@ -34,6 +34,7 @@ class _SearchPageState extends State<SearchPage> {
               color: Colors.white,
               fontSize: 18.0,
             ),
+            // autofocus: true,
             controller: _inputController,
             cursorColor: Colors.white,
             decoration: InputDecoration(
@@ -42,8 +43,10 @@ class _SearchPageState extends State<SearchPage> {
               suffixIcon: searchString.length > 0
                   ? IconButton(
                       icon: Icon(Icons.close),
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
                       onPressed: () {
-                        _inputController.text = '';
+                        _inputController.clear();
                         setState(() {
                           _foundSounds =
                               Provider.of<AppModel>(context, listen: false)
@@ -68,10 +71,6 @@ class _SearchPageState extends State<SearchPage> {
             child: GestureDetector(
               onTap: () {
                 FocusScope.of(context).unfocus();
-                print('TAP');
-              },
-              onVerticalDragStart: (o) {
-                print('VERTICAL');
               },
               child: (_foundSounds ?? []).length > 0
                   ? PlayerList(_foundSounds, 'search')

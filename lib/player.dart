@@ -7,7 +7,6 @@ class Player extends StatelessWidget {
     @required this.isLiked,
     @required this.title,
     @required this.handlePress,
-    @required this.handleLikePress,
     @required this.imagePath,
   });
 
@@ -16,7 +15,6 @@ class Player extends StatelessWidget {
   final bool isLiked;
   final String title;
   final Function handlePress;
-  final Function handleLikePress;
   final String imagePath;
 
   @override
