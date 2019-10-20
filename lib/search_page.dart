@@ -12,14 +12,19 @@ class SearchPage extends StatefulWidget {
 class _SearchPageState extends State<SearchPage> {
   List<Map<String, String>> _foundSounds = [];
   final TextEditingController _inputController = new TextEditingController();
+  final FocusNode _inputFocus = new FocusNode();
 
   @override
   void initState() {
     var searchString =
         Provider.of<AppModel>(context, listen: false).searchString;
     _inputController.text = searchString;
-    _foundSounds = Provider.of<AppModel>(context, listen: false)
-        .getSearchResults(searchString);
+    _inputController.addListener(() {
+      setState(() {
+        _foundSounds = Provider.of<AppModel>(context, listen: false)
+            .getSearchResults(_inputController.text);
+      });
+    });
     super.initState();
   }
 
@@ -34,38 +39,27 @@ class _SearchPageState extends State<SearchPage> {
               color: Colors.white,
               fontSize: 18.0,
             ),
-            // autofocus: true,
+            focusNode: _inputFocus,
             controller: _inputController,
             cursorColor: Colors.white,
             decoration: InputDecoration(
               hintText: 'Search by title or theme',
               prefixIcon: Icon(CustomIcons.search_empty),
-              suffixIcon: searchString.length > 0
-                  ? IconButton(
-                      icon: Icon(Icons.close),
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onPressed: () {
-                        _inputController.clear();
-                        setState(() {
-                          _foundSounds =
-                              Provider.of<AppModel>(context, listen: false)
-                                  .getSearchResults('');
-                        });
-                      },
-                    )
-                  : null,
+              suffixIcon: Opacity(
+                opacity: searchString.length > 0 ? 1.0 : 0.0,
+                child: IconButton(
+                  icon: Icon(Icons.close),
+                  onPressed: () {
+                    _inputController.clear();
+                    // Focus.of(context).requestFocus(_inputFocus);
+                  },
+                ),
+              ),
               contentPadding: EdgeInsets.all(16.0),
               fillColor: Colors.white30,
               filled: true,
               border: InputBorder.none,
             ),
-            onChanged: (input) {
-              setState(() {
-                _foundSounds = Provider.of<AppModel>(context, listen: false)
-                    .getSearchResults(input);
-              });
-            },
           ),
           Expanded(
             child: GestureDetector(

@@ -41,7 +41,7 @@ var soundData = [
     'title': 'I can\'t believe you\'ve done this',
     'soundPath': 'cant-believe-youve-done-this.mp3',
     'imagePath': 'cant-believe-youve-done-this.jpg',
-    'searchString': 'i cant believe',
+    'searchString': 'oh fuck i cant believe',
   },
   {
     'title': 'Censor beep sound',
@@ -65,13 +65,13 @@ var soundData = [
     'title': 'Silenced pistol',
     'soundPath': 'silenced-pistol.mp3',
     'imagePath': 'silenced-pistol.webp',
-    'searchString': 'hitman',
+    'searchString': 'hitman lego',
   },
   {
     'title': 'Damn son',
     'soundPath': 'damn-son.mp3',
     'imagePath': 'damn-son.jpg',
-    'searchString': '',
+    'searchString': 'where did you find this',
   },
   {
     'title': 'Fortnite dance moves',
@@ -89,7 +89,8 @@ var soundData = [
     'title': 'Adventure time dancing bug',
     'soundPath': 'dancing-bug-adventure-time.mp3',
     'imagePath': 'dancing-bug-adventure-time.jpg',
-    'searchString': 'jake yellow dog',
+    'searchString':
+        'hey man youre shaking it all wrong let me show you how its done jake yellow dog',
   },
   {
     'title': 'Derp',
@@ -179,7 +180,7 @@ var soundData = [
     'title': 'Fuck this shit im out',
     'soundPath': 'fuck-this-shit-im-out.mp3',
     'imagePath': 'fuck-this-shit-im-out.jpg',
-    'searchString': '',
+    'searchString': 'no thanks',
   },
   {
     'title': 'Oppa gangnam style',
@@ -191,7 +192,7 @@ var soundData = [
     'title': 'Get schwifty',
     'soundPath': 'get_schwifty.mp3',
     'imagePath': 'get_schwifty.jpg',
-    'searchString': 'rick and morty',
+    'searchString': 'oh yeah rick and morty',
   },
   {
     'title': 'Ah shit, here we go again',
@@ -281,7 +282,7 @@ var soundData = [
     'title': 'Leeroy jenkins!',
     'soundPath': 'leeroy-jenkins.mp3',
     'imagePath': 'leeroy-jenkins.jpg',
-    'searchString': 'leeeeeee',
+    'searchString': 'leeeeeee wow',
   },
   {
     'title': 'Lemme smash',
@@ -329,19 +330,19 @@ var soundData = [
     'title': 'My name is pewdiepie',
     'soundPath': 'my-name-is-pewdiepie.mp3',
     'imagePath': 'my-name-is-pewdiepie.jpg',
-    'searchString': 'pewds',
+    'searchString': 'how is going bros pewds',
   },
   {
     'title': 'Oh baby a triple',
     'soundPath': 'oh-baby-a-triple.mp3',
-    'imagePath': 'oh-baby-a-triple.jpg',
+    'imagePath': 'oh-baby-a-triple.png',
     'searchString': 'mlg',
   },
   {
     'title': 'Oh my god mlg',
     'soundPath': 'oh-my-god-mlg.mp3',
     'imagePath': 'oh-my-god-mlg.jpg',
-    'searchString': '',
+    'searchString': 'oh oh oh',
   },
   {
     'title': 'JOJO: Oh shit',
@@ -352,7 +353,7 @@ var soundData = [
   {
     'title': 'Oh shit',
     'soundPath': 'oh-shit.mp3',
-    'imagePath': 'oh-shit.jpg',
+    'imagePath': 'oh-shit.png',
     'searchString': '',
   },
   {
@@ -383,7 +384,7 @@ var soundData = [
     'title': 'Fresh meat',
     'soundPath': 'pud-fresh-meat.mp3',
     'imagePath': 'pud-fresh-meat.jpg',
-    'searchString': 'pud dota2',
+    'searchString': 'hahaha pud dota2',
   },
   {
     'title': 'Really nigga',
@@ -491,7 +492,7 @@ var soundData = [
     'title': 'We are the champions',
     'soundPath': 'we-are-the-champions.mp3',
     'imagePath': 'we-are-the-champions.jpg',
-    'searchString': '',
+    'searchString': 'queen',
   },
   {
     'title': 'Wedding march',
@@ -1597,4 +1598,11 @@ var soundData = [
 //   soundData.sort((a, b) => a['title'].compareTo(b['title']));
 //   print(jsonEncode(soundData));
 //   // soundData.forEach((f) => print('- ' + f['title']));
+// }
+
+// void main() {
+//   soundData.forEach((sound) {
+//     var t = sound['title'];
+//     print('- $t');
+//   });
 // }

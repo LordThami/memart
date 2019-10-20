@@ -38,6 +38,8 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
     return MaterialApp(
       title: 'Memart',
       theme: ThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
         brightness: Brightness.dark,
         primaryColor: Colors.black,
         accentColor: Colors.white,
