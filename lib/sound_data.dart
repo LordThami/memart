@@ -2,6 +2,150 @@
 
 var soundData = [
   {
+    "title": "ASDF: I love it horse",
+    "soundPath": "asdf-i-love-it.mp3",
+    "imagePath": "asdf-i-love-it.jpg",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: I like trains",
+    "soundPath": "asdf-i-like-trains-original.mp3",
+    "imagePath": "asdf-i-like-trains-original.jpg",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: I am a stegosaurus",
+    "soundPath": "asdf-i-am-a-stegosaurus.mp3",
+    "imagePath": "asdf-i-am-a-stegosaurus.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: I like trains",
+    "soundPath": "asdf-i-like-trains.mp3",
+    "imagePath": "asdf-i-like-trains.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: beep beep I'm a sheep",
+    "soundPath": "asdf-beep-beep.mp3",
+    "imagePath": "asdf-beep-beep.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: beep beep I'm a sheep (funky)",
+    "soundPath": "asdf-beep-beep-funky.mp3",
+    "imagePath": "asdf-beep-beep-funky.jpg",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: die potato",
+    "soundPath": "asdf-die-potato.mp3",
+    "imagePath": "asdf-die-potato.jpg",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: everybody do the flop",
+    "soundPath": "asdf-everybody-do-the-flop.mp3",
+    "imagePath": "asdf-everybody-do-the-flop.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: it's muffin time",
+    "soundPath": "asdf-its-muffin-time.mp3",
+    "imagePath": "asdf-its-muffin-time.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: mine turtle",
+    "soundPath": "asdf-mine-turtle.mp3",
+    "imagePath": "asdf-mine-turtle.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: muffin die die die song",
+    "soundPath": "asdf-muffin-die-die-die.mp3",
+    "imagePath": "asdf-muffin-die-die-die.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: pie flavor",
+    "soundPath": "asdf-pie-flavor.mp3",
+    "imagePath": "asdf-pie-flavor.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: suicidal muffin",
+    "soundPath": "asdf-suicidal-muffin.mp3",
+    "imagePath": "asdf-suicidal-muffin.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "ASDF: who wants a muffin",
+    "soundPath": "asdf-who-wants-a-muffin.mp3",
+    "imagePath": "asdf-who-wants-a-muffin.png",
+    "searchString": "asdf movie"
+  },
+  {
+    "title": "Pikachu",
+    "soundPath": "pika.mp3",
+    "imagePath": "pika.jpg",
+    "searchString": "anime pikachu pika pika"
+  },
+  {
+    "title": "Pokemon theme",
+    "soundPath": "pokemon-theme.mp3",
+    "imagePath": "pokemon-theme.jpg",
+    "searchString": "anime"
+  },
+  {
+    "title": "Digimon theme",
+    "soundPath": "digimon-theme.mp3",
+    "imagePath": "digimon-theme.jpg",
+    "searchString": "anime"
+  },
+  {
+    "title": "Why so serious",
+    "soundPath": "why-so-serious.mp3",
+    "imagePath": "why-so-serious.jpg",
+    "searchString": "joker dark knight"
+  },
+  {
+    "title": "Adventure time theme",
+    "soundPath": "adventure-time-theme.mp3",
+    "imagePath": "adventure-time-theme.jpg",
+    "searchString": "cartoon"
+  },
+  {
+    "title": "Tom and Jerry theme",
+    "soundPath": "tom-n-jerry.mp3",
+    "imagePath": "tom-n-jerry.jpg",
+    "searchString": "cartoon"
+  },
+  {
+    "title": "Fairly oddparents theme",
+    "soundPath": "faily-oddparents-theme.mp3",
+    "imagePath": "faily-oddparents-theme.jpg",
+    "searchString": "cartoon"
+  },
+  {
+    "title": "Scooby doo theme",
+    "soundPath": "scooby-doo-theme.mp3",
+    "imagePath": "scooby-doo-theme.jpg",
+    "searchString": "cartoon dog"
+  },
+  {
+    "title": "TMNT theme",
+    "soundPath": "tmnt-theme.mp3",
+    "imagePath": "tmnt-theme.jpg",
+    "searchString": "teenage mutant ninja turtles cartoon"
+  },
+  {
+    "title": "Whatcha doing",
+    "soundPath": "whatchadoing.mp3",
+    "imagePath": "whatchadoing.jpg",
+    "searchString": "phineas and ferb isabella"
+  },
+  {
     'title': 'Ali-A intro (bass)',
     'soundPath': 'ali-a-bass.mp3',
     'imagePath': 'ali-a-bass.jpg',
@@ -474,7 +618,7 @@ var soundData = [
     'title': 'THX intro',
     'soundPath': 'thx-into.mp3',
     'imagePath': 'thx-into.jpg',
-    'searchString': 'cinema',
+    'searchString': 'cinema deep note',
   },
   {
     'title': 'Triple kill',
@@ -553,78 +697,6 @@ var soundData = [
     'soundPath': 'you-shall-not-pass.mp3',
     'imagePath': 'you-shall-not-pass.jpg',
     'searchString': '',
-  },
-  {
-    "title": "ASDF: I am a stegosaurus",
-    "soundPath": "asdf-i-am-a-stegosaurus.mp3",
-    "imagePath": "asdf-i-am-a-stegosaurus.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: I like trains",
-    "soundPath": "asdf-i-like-trains.mp3",
-    "imagePath": "asdf-i-like-trains.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: beep beep I'm a sheep",
-    "soundPath": "asdf-beep-beep.mp3",
-    "imagePath": "asdf-beep-beep.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: beep beep I'm a sheep (funky)",
-    "soundPath": "asdf-beep-beep-funky.mp3",
-    "imagePath": "asdf-beep-beep-funky.jpg",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: die potato",
-    "soundPath": "asdf-die-potato.mp3",
-    "imagePath": "asdf-die-potato.jpg",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: everybody do the flop",
-    "soundPath": "asdf-everybody-do-the-flop.mp3",
-    "imagePath": "asdf-everybody-do-the-flop.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: it's muffin time",
-    "soundPath": "asdf-its-muffin-time.mp3",
-    "imagePath": "asdf-its-muffin-time.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: mine turtle",
-    "soundPath": "asdf-mine-turtle.mp3",
-    "imagePath": "asdf-mine-turtle.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: muffin die die die song",
-    "soundPath": "asdf-muffin-die-die-die.mp3",
-    "imagePath": "asdf-muffin-die-die-die.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: pie flavor",
-    "soundPath": "asdf-pie-flavor.mp3",
-    "imagePath": "asdf-pie-flavor.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: suicidal muffin",
-    "soundPath": "asdf-suicidal-muffin.mp3",
-    "imagePath": "asdf-suicidal-muffin.png",
-    "searchString": "asdf movie"
-  },
-  {
-    "title": "ASDF: who wants a muffin",
-    "soundPath": "asdf-who-wants-a-muffin.mp3",
-    "imagePath": "asdf-who-wants-a-muffin.png",
-    "searchString": "asdf movie"
   },
   {
     "title": "Ain't nobody got time for that",
