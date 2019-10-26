@@ -2,6 +2,222 @@
 
 var soundData = [
   {
+    'title': '20th Century Fox',
+    'soundPath': '20th-century.mp3',
+    'imagePath': '20th-century.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'Angry birds',
+    'soundPath': 'angry-birds.mp3',
+    'imagePath': 'angry-birds.webp',
+    'searchString': '',
+  },
+  {
+    'title': 'Dial up',
+    'soundPath': 'dial-up.mp3',
+    'imagePath': 'dial-up.jpg',
+    'searchString': 'internet modem',
+  },
+  {
+    'title': 'Ding',
+    'soundPath': 'ding.mp3',
+    'imagePath': 'ding.jpg',
+    'searchString': 'new idea',
+  },
+  {
+    'title': 'Godzilla',
+    'soundPath': 'godzilla.mp3',
+    'imagePath': 'godzilla.jpeg',
+    'searchString': 'roar dinosaur',
+  },
+  {
+    'title': 'Half Life health',
+    'soundPath': 'half-life-health.mp3',
+    'imagePath': 'half-life-health.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'ICQ',
+    'soundPath': 'icq.mp3',
+    'imagePath': 'icq.jpg',
+    'searchString': 'notification',
+  },
+  {
+    'title': 'Intel',
+    'soundPath': 'intel.mp3',
+    'imagePath': 'intel.png',
+    'searchString': '',
+  },
+  {
+    'title': 'iPhone keyboard',
+    'soundPath': 'iphone-keyboard.mp3',
+    'imagePath': 'iphone-keyboard.jpg',
+    'searchString': 'type typing',
+  },
+  {
+    'title': 'iPhone new message',
+    'soundPath': 'iphone-new-message.mp3',
+    'imagePath': 'iphone-new-message.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'iPhone send',
+    'soundPath': 'iphone-send.mp3',
+    'imagePath': 'iphone-send.png',
+    'searchString': '',
+  },
+  {
+    'title': 'Kim Possible theme',
+    'soundPath': 'kim-possible.mp3',
+    'imagePath': 'kim-possible.png',
+    'searchString': '',
+  },
+  {
+    'title': 'Mac startup',
+    'soundPath': 'mac-startup.mp3',
+    'imagePath': 'mac-startup.png',
+    'searchString': 'apple',
+  },
+  {
+    'title': 'Meep meep',
+    'soundPath': 'meep-meep.mp3',
+    'imagePath': 'meep-meep.jpg',
+    'searchString': 'speed runner',
+  },
+  {
+    'title': 'NOKIA intro',
+    'soundPath': 'nokia.mp3',
+    'imagePath': 'nokia.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'PS1 startup',
+    'soundPath': 'ps1.mp3',
+    'imagePath': 'ps1.jpg',
+    'searchString': 'playstation',
+  },
+  {
+    'title': 'Seduce me',
+    'soundPath': 'seduce-me.mp3',
+    'imagePath': 'seduce-me.jpg',
+    'searchString': 'tf2 spy',
+  },
+  {
+    'title': 'SEGA',
+    'soundPath': 'sega.mp3',
+    'imagePath': 'sega.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'Skype ringtone',
+    'soundPath': 'skype.mp3',
+    'imagePath': 'skype.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'Universal intro',
+    'soundPath': 'universal.mp3',
+    'imagePath': 'universal.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'Windows vista startup',
+    'soundPath': 'vista-startup.mp3',
+    'imagePath': 'vista-startup.png',
+    'searchString': '',
+  },
+  {
+    'title': 'WC3 jobs done',
+    'soundPath': 'wc3-jobs-done.mp3',
+    'imagePath': 'wc3-jobs-done.jpg',
+    'searchString': 'warcraft 3',
+  },
+  {
+    'title': 'WC3 my life for nerzul',
+    'soundPath': 'wc3-my-life-for-nerzul.mp3',
+    'imagePath': 'wc3-my-life-for-nerzul.jpg',
+    'searchString': 'warcraft 3',
+  },
+  {
+    'title': 'WC3 work work',
+    'soundPath': 'wc3-work-work.mp3',
+    'imagePath': 'wc3-work-work.jpg',
+    'searchString': 'warcraft 3',
+  },
+  {
+    'title': 'Xbox 360 startup',
+    'soundPath': 'xbox-startup.mp3',
+    'imagePath': 'xbox-startup.jpg',
+    'searchString': '',
+  },
+  {
+    'title': 'Legend of Zelda secret chime',
+    'soundPath': 'zelda.mp3',
+    'imagePath': 'zelda.jpg',
+    'searchString': 'game',
+  },
+  {
+    "title": "Pikachu",
+    "soundPath": "pika.mp3",
+    "imagePath": "pika.jpg",
+    "searchString": "anime pikachu pika pika"
+  },
+  {
+    "title": "Pokemon theme",
+    "soundPath": "pokemon-theme.mp3",
+    "imagePath": "pokemon-theme.jpg",
+    "searchString": "anime"
+  },
+  {
+    "title": "Digimon theme",
+    "soundPath": "digimon-theme.mp3",
+    "imagePath": "digimon-theme.jpg",
+    "searchString": "anime"
+  },
+  {
+    "title": "Why so serious",
+    "soundPath": "why-so-serious.mp3",
+    "imagePath": "why-so-serious.jpg",
+    "searchString": "joker dark knight"
+  },
+  {
+    "title": "Adventure time theme",
+    "soundPath": "adventure-time-theme.mp3",
+    "imagePath": "adventure-time-theme.jpg",
+    "searchString": "cartoon"
+  },
+  {
+    "title": "Tom and Jerry theme",
+    "soundPath": "tom-n-jerry.mp3",
+    "imagePath": "tom-n-jerry.jpg",
+    "searchString": "cartoon"
+  },
+  {
+    "title": "Fairly oddparents theme",
+    "soundPath": "faily-oddparents-theme.mp3",
+    "imagePath": "faily-oddparents-theme.jpg",
+    "searchString": "cartoon"
+  },
+  {
+    "title": "Scooby doo theme",
+    "soundPath": "scooby-doo-theme.mp3",
+    "imagePath": "scooby-doo-theme.jpg",
+    "searchString": "cartoon dog"
+  },
+  {
+    "title": "TMNT theme",
+    "soundPath": "tmnt-theme.mp3",
+    "imagePath": "tmnt-theme.jpg",
+    "searchString": "teenage mutant ninja turtles cartoon"
+  },
+  {
+    "title": "Whatcha doing",
+    "soundPath": "whatchadoing.mp3",
+    "imagePath": "whatchadoing.jpg",
+    "searchString": "phineas and ferb isabella"
+  },
+  {
     "title": "ASDF: I love it horse",
     "soundPath": "asdf-i-love-it.mp3",
     "imagePath": "asdf-i-love-it.jpg",
@@ -84,66 +300,6 @@ var soundData = [
     "soundPath": "asdf-who-wants-a-muffin.mp3",
     "imagePath": "asdf-who-wants-a-muffin.png",
     "searchString": "asdf movie"
-  },
-  {
-    "title": "Pikachu",
-    "soundPath": "pika.mp3",
-    "imagePath": "pika.jpg",
-    "searchString": "anime pikachu pika pika"
-  },
-  {
-    "title": "Pokemon theme",
-    "soundPath": "pokemon-theme.mp3",
-    "imagePath": "pokemon-theme.jpg",
-    "searchString": "anime"
-  },
-  {
-    "title": "Digimon theme",
-    "soundPath": "digimon-theme.mp3",
-    "imagePath": "digimon-theme.jpg",
-    "searchString": "anime"
-  },
-  {
-    "title": "Why so serious",
-    "soundPath": "why-so-serious.mp3",
-    "imagePath": "why-so-serious.jpg",
-    "searchString": "joker dark knight"
-  },
-  {
-    "title": "Adventure time theme",
-    "soundPath": "adventure-time-theme.mp3",
-    "imagePath": "adventure-time-theme.jpg",
-    "searchString": "cartoon"
-  },
-  {
-    "title": "Tom and Jerry theme",
-    "soundPath": "tom-n-jerry.mp3",
-    "imagePath": "tom-n-jerry.jpg",
-    "searchString": "cartoon"
-  },
-  {
-    "title": "Fairly oddparents theme",
-    "soundPath": "faily-oddparents-theme.mp3",
-    "imagePath": "faily-oddparents-theme.jpg",
-    "searchString": "cartoon"
-  },
-  {
-    "title": "Scooby doo theme",
-    "soundPath": "scooby-doo-theme.mp3",
-    "imagePath": "scooby-doo-theme.jpg",
-    "searchString": "cartoon dog"
-  },
-  {
-    "title": "TMNT theme",
-    "soundPath": "tmnt-theme.mp3",
-    "imagePath": "tmnt-theme.jpg",
-    "searchString": "teenage mutant ninja turtles cartoon"
-  },
-  {
-    "title": "Whatcha doing",
-    "soundPath": "whatchadoing.mp3",
-    "imagePath": "whatchadoing.jpg",
-    "searchString": "phineas and ferb isabella"
   },
   {
     'title': 'Ali-A intro (bass)',
