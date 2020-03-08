@@ -3,7 +3,6 @@ import 'package:meme_soundboard/app_model.dart';
 import 'package:meme_soundboard/custom_icons_icons.dart';
 import 'package:provider/provider.dart';
 import 'player_list.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -92,24 +91,121 @@ class _SearchPageState extends State<SearchPage> {
             style: TextStyle(fontSize: 16.0),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 40.0),
-          Text(
-            'Request to add "${_inputController.text}"?',
-            style: TextStyle(fontSize: 16.0),
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 16.0),
-          RaisedButton(
-            child: Text('Yes, please'),
-            color: Colors.pink,
-            onPressed: () {
-              Firestore.instance.collection('suggestions').add({
-                'name': _inputController.text,
-              });
-            },
-          ),
+          SuggestionForm(suggestion: _inputController.text),
         ],
       ),
+    );
+  }
+}
+
+class SuggestionForm extends StatefulWidget {
+  const SuggestionForm({
+    Key key,
+    @required this.suggestion,
+  }) : super(key: key);
+
+  final String suggestion;
+
+  @override
+  _SuggestionFormState createState() => _SuggestionFormState();
+}
+
+enum _FormState {
+  normal,
+  waiting,
+  success,
+  fail,
+}
+
+class _SuggestionFormState extends State<SuggestionForm> {
+  _FormState state = _FormState.normal;
+
+  @override
+  void didUpdateWidget(SuggestionForm oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    final hasSuggestion =
+        Provider.of<AppModel>(context).hasSuggestion(widget.suggestion);
+    final newState = hasSuggestion ? _FormState.success : _FormState.normal;
+    setState(() {
+      state = newState;
+    });
+  }
+
+  Future<void> handleSubmit(AppModel model) async {
+    setState(() {
+      state = _FormState.waiting;
+    });
+    final isSuccess = await model.addSuggestion(widget.suggestion);
+    setState(() {
+      state = isSuccess ? _FormState.success : _FormState.fail;
+    });
+  }
+
+  String getTitle() {
+    switch (state) {
+      case _FormState.normal:
+        return 'Request to add "${widget.suggestion}"?';
+      case _FormState.waiting:
+        return 'Submitting...';
+      case _FormState.success:
+        return 'Submitted!';
+      case _FormState.fail:
+        return 'Couldn\'t submit';
+      default:
+        throw Exception('Unindentified suggestion form state');
+    }
+  }
+
+  Widget _buildButtonOrLoader({Function callback}) {
+    RaisedButton _buildButton(String text) {
+      return RaisedButton(
+        child: Text(text),
+        color: Colors.pink,
+        onPressed: callback,
+      );
+    }
+
+    switch (state) {
+      case _FormState.normal:
+        return _buildButton('Yes, please');
+      case _FormState.waiting:
+        return CircularProgressIndicator();
+      case _FormState.success:
+        return Icon(
+          Icons.check_circle_outline,
+          size: 48.0,
+        );
+      case _FormState.fail:
+        return _buildButton('Try again');
+      default:
+        throw Exception('Unindentified suggestion form state');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<AppModel>(
+      builder: (context, model, child) {
+        return Column(
+          children: <Widget>[
+            SizedBox(height: 40.0),
+            Text(
+              getTitle(),
+              style: TextStyle(fontSize: 16.0),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 8.0),
+            Container(
+              height: 48.0,
+              child: Center(
+                child: _buildButtonOrLoader(
+                  callback: () => handleSubmit(model),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

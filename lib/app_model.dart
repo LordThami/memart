@@ -5,12 +5,15 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'sound_data.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AppModel extends ChangeNotifier {
   static const String LIKED_SOUND_PATH_KEY = 'likedSoundPaths';
   static const String SELECTED_SOUND_PATH_KEY = 'selectedSoundPath';
+  static const String SUGGESTED_SOUNDS_KEY = 'suggestedSounds';
   SharedPreferences _prefs;
   List<String> _likedSoundPaths = [];
+  List<String> _suggestedSounds;
   AudioCache _audioCache;
   AudioPlayer _player;
   String selectedSoundPath;
@@ -30,6 +33,7 @@ class AppModel extends ChangeNotifier {
       _likedSoundPaths = _prefs.getStringList(LIKED_SOUND_PATH_KEY) ?? [];
       selectedSoundPath =
           _prefs.getString(SELECTED_SOUND_PATH_KEY) ?? sounds[0]['soundPath'];
+      _suggestedSounds = _prefs.getStringList(SUGGESTED_SOUNDS_KEY) ?? [];
       notifyListeners();
     });
   }
@@ -131,5 +135,22 @@ class AppModel extends ChangeNotifier {
     await Share.file('Share "$title"', selectedSoundPath,
         bytes.buffer.asUint8List(), 'audio/mpeg',
         text: 'Shared with Memart.');
+  }
+
+  bool hasSuggestion(String suggestion) {
+    return _suggestedSounds.contains(suggestion);
+  }
+
+  Future<bool> addSuggestion(String suggestion) async {
+    if (hasSuggestion(suggestion)) return false;
+    _suggestedSounds.add(suggestion);
+    notifyListeners();
+    final isCached =
+        await _prefs.setStringList(SUGGESTED_SOUNDS_KEY, _suggestedSounds);
+    if (!isCached) return false;
+    final docRef = await Firestore.instance.collection('suggestions').add({
+      'name': suggestion,
+    });
+    return docRef != null;
   }
 }
