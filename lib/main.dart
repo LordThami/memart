@@ -47,6 +47,7 @@ class _MemeSoundboardAppState extends State<MemeSoundboardApp> {
         canvasColor: Color(0xFF1F1F1F),
       ),
       home: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: AppBody(controller: _controller),
         bottomNavigationBar: Container(
           decoration: BoxDecoration(

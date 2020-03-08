@@ -18,8 +18,6 @@ class AppModel extends ChangeNotifier {
   List<Map<String, String>> sounds;
   Map<String, Map<String, String>> _soundLookup;
 
-  String searchString = '';
-
   AppModel() {
     _audioCache = AudioCache(prefix: 'sounds/');
     sounds = soundData;
@@ -91,7 +89,6 @@ class AppModel extends ChangeNotifier {
   }
 
   List<Map<String, String>> getSearchResults(String input) {
-    searchString = input;
     if (input.length == 0) return null;
     Set<String> resultsFileNames = Set();
     List<Map<String, String>> results = [];
