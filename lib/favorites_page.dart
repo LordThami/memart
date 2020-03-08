@@ -22,28 +22,26 @@ class NoLikesMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('No likes',
-                style: TextStyle(
-                  fontSize: 32.0,
-                )),
-            SizedBox(
-              height: 12.0,
-            ),
-            Text(
-              'Like a sound and it will show up here.',
-              textAlign: TextAlign.center,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 120.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('No likes',
               style: TextStyle(
-                fontSize: 16.0,
-              ),
+                fontSize: 32.0,
+              )),
+          SizedBox(
+            height: 12.0,
+          ),
+          Text(
+            'Like a sound and it will show up here.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 16.0,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

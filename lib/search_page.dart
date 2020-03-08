@@ -3,6 +3,7 @@ import 'package:meme_soundboard/app_model.dart';
 import 'package:meme_soundboard/custom_icons_icons.dart';
 import 'package:provider/provider.dart';
 import 'player_list.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SearchPage extends StatefulWidget {
   @override
@@ -101,7 +102,11 @@ class _SearchPageState extends State<SearchPage> {
           RaisedButton(
             child: Text('Yes, please'),
             color: Colors.pink,
-            onPressed: () {},
+            onPressed: () {
+              Firestore.instance.collection('suggestions').add({
+                'name': _inputController.text,
+              });
+            },
           ),
         ],
       ),
