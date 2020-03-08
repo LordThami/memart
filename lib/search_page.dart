@@ -62,20 +62,14 @@ class _SearchPageState extends State<SearchPage> {
         ),
         Expanded(
           child: Listener(
+            behavior: HitTestBehavior.translucent,
             onPointerDown: (_) {
               FocusScope.of(context).unfocus();
             },
             child: (_foundSounds ?? []).length > 0
                 ? PlayerList(_foundSounds, 'search')
                 : _inputController.text.length > 0
-                    ? Padding(
-                        padding: const EdgeInsets.all(24.0),
-                        child: Text(
-                          'No results found for "${_inputController.text}"',
-                          style: TextStyle(fontSize: 16.0),
-                          textAlign: TextAlign.center,
-                        ),
-                      )
+                    ? _buildNoResults()
                     : Container(
                         width: double.infinity,
                         height: double.infinity,
@@ -84,6 +78,33 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildNoResults() {
+    return Padding(
+      padding: const EdgeInsets.all(24.0),
+      child: Column(
+        children: <Widget>[
+          Text(
+            'No results',
+            style: TextStyle(fontSize: 16.0),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 40.0),
+          Text(
+            'Request to add "${_inputController.text}"?',
+            style: TextStyle(fontSize: 16.0),
+            textAlign: TextAlign.center,
+          ),
+          SizedBox(height: 16.0),
+          RaisedButton(
+            child: Text('Yes, please'),
+            color: Colors.pink,
+            onPressed: () {},
+          ),
+        ],
+      ),
     );
   }
 }
