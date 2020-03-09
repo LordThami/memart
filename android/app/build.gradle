@@ -49,8 +49,8 @@ android {
         targetSdkVersion 28
         // versionCode flutterVersionCode.toInteger()
         // versionName flutterVersionName
-        versionCode 12
-        versionName "2.6.0"
+        versionCode 13
+        versionName "2.6.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
