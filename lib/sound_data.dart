@@ -423,8 +423,8 @@ var soundData = [
   },
   {
     'title': 'Censor beep sound',
-    'soundPath': 'CENSOR BEEP.mp3',
-    'imagePath': 'CENSOR BEEP.jpg',
+    'soundPath': 'CENSOR_BEEP.mp3',
+    'imagePath': 'CENSOR_BEEP.jpg',
     'searchString': '',
   },
   {
@@ -490,8 +490,8 @@ var soundData = [
   },
   {
     'title': 'Munch',
-    'soundPath': 'EAT OR MUNCH.mp3',
-    'imagePath': 'EAT OR MUNCH.jpg',
+    'soundPath': 'EAT_OR_MUNCH.mp3',
+    'imagePath': 'EAT_OR_MUNCH.jpg',
     'searchString': 'crunch eat chomp',
   },
   {
@@ -772,8 +772,8 @@ var soundData = [
   },
   {
     'title': 'Rewind',
-    'soundPath': 'RECORD REWIND.mp3',
-    'imagePath': 'RECORD REWIND.jpg',
+    'soundPath': 'RECORD_REWIND.mp3',
+    'imagePath': 'RECORD_REWIND.jpg',
     'searchString': '',
   },
   {
