@@ -856,7 +856,7 @@ var soundData = [
   },
   {
     "title": "Ain't nobody got time for that",
-    "soundPath": "AINT NOBODY GOT TIME FOR THAT.mp3",
+    "soundPath": "AINT_NOBODY_GOT_TIME_FOR_THAT.mp3",
     "imagePath": "no_time.jpg",
     "searchString": "tv meme"
   },
@@ -892,7 +892,7 @@ var soundData = [
   },
   {
     "title": "Answer is wrong",
-    "soundPath": "BUZZER OR WRONG ANSWER.mp3",
+    "soundPath": "BUZZER_OR_WRONG_ANSWER.mp3",
     "imagePath": "wrong.jpg",
     "searchString": "cross wrong sound effect tv show buzzer"
   },
@@ -904,7 +904,7 @@ var soundData = [
   },
   {
     "title": "Ba dum tss",
-    "soundPath": "BA DUM TSS.mp3",
+    "soundPath": "BA_DUM_TSS.mp3",
     "imagePath": "badums.jpg",
     "searchString": "joke drums troll face"
   },
@@ -988,19 +988,19 @@ var soundData = [
   },
   {
     "title": "Cartoon laugh",
-    "soundPath": "CARTOON LAUGH.mp3",
+    "soundPath": "CARTOON_LAUGH.mp3",
     "imagePath": "chip.png",
     "searchString": "chip n dale cartoon funny"
   },
   {
     "title": "Crickets",
-    "soundPath": "CRICKETS CHIRPING.mp3",
+    "soundPath": "CRICKETS_CHIRPING.mp3",
     "imagePath": "crickets.jpg",
     "searchString": "silence chirping night awkward"
   },
   {
     "title": "Crowd cheering",
-    "soundPath": "CROWD CHEERING.mp3",
+    "soundPath": "CROWD_CHEERING.mp3",
     "imagePath": "crowd_cheer.jpg",
     "searchString": "success applause"
   },
@@ -1012,7 +1012,7 @@ var soundData = [
   },
   {
     "title": "DUN DUN DUN",
-    "soundPath": "DUN DUN DUNNN.mp3",
+    "soundPath": "DUN_DUN_DUNNN.mp3",
     "imagePath": "dun_dun.jpg",
     "searchString": "surprise cat"
   },
@@ -1060,7 +1060,7 @@ var soundData = [
   },
   {
     "title": "Drum roll",
-    "soundPath": "DRUM ROLL.mp3",
+    "soundPath": "DRUM_ROLL.mp3",
     "imagePath": "drum_roll.jpg",
     "searchString": "anticipation"
   },
@@ -1084,7 +1084,7 @@ var soundData = [
   },
   {
     "title": "Flintstone scrambling",
-    "soundPath": "SCRAMBLING - FRED FLINTSTONE.mp3",
+    "soundPath": "SCRAMBLING_-_FRED_FLINTSTONE.mp3",
     "imagePath": "flintstone.jpg",
     "searchString": "cartoon run"
   },
@@ -1102,31 +1102,31 @@ var soundData = [
   },
   {
     "title": "Get over here!",
-    "soundPath": "GET OVER HERE.mp3",
+    "soundPath": "GET_OVER_HERE.mp3",
     "imagePath": "get_over_here.jpg",
     "searchString": "scorpion mortal combat game videogame"
   },
   {
     "title": "God please no",
-    "soundPath": "NO GOD PLEASE NO.mp3",
+    "soundPath": "NO_GOD_PLEASE_NO.mp3",
     "imagePath": "no.png",
     "searchString": "meme no god noooo"
   },
   {
     "title": "HA HA",
-    "soundPath": "HA HA (NELSON).mp3",
+    "soundPath": "HA_HA_(NELSON).mp3",
     "imagePath": "ha_ha.jpg",
     "searchString": "simpsons laugh cartoon"
   },
   {
     "title": "Ha! Gay!",
-    "soundPath": "HA GAY.mp3",
+    "soundPath": "HA_GAY.mp3",
     "imagePath": "ha_gay.jpg",
     "searchString": "ha gayyyyy gaayy meme"
   },
   {
     "title": "Ha! Got em",
-    "soundPath": "HA GOT EMM.mp3",
+    "soundPath": "HA_GOT_EMM.mp3",
     "imagePath": "got_em.jpg",
     "searchString": "deez nuts"
   },
@@ -1138,12 +1138,12 @@ var soundData = [
   },
   {
     "title": "Heart beat",
-    "soundPath": "HEART BEAT.mp3",
+    "soundPath": "HEART_BEAT.mp3",
     "imagePath": "heart_beat.jpg"
   },
   {
     "title": "Heavenly choir",
-    "soundPath": "HEAVENLY CHOIR.mp3",
+    "soundPath": "HEAVENLY_CHOIR.mp3",
     "imagePath": "heaven.jpg",
     "searchString": "good god happy satisfaction"
   },
@@ -1191,7 +1191,7 @@ var soundData = [
   },
   {
     "title": "Inception horn",
-    "soundPath": "INCEPTION FOG HORN.mp3",
+    "soundPath": "INCEPTION_FOG_HORN.mp3",
     "imagePath": "inception.jpg",
     "searchString": "suspense"
   },
@@ -1281,7 +1281,7 @@ var soundData = [
   },
   {
     "title": "John Cena",
-    "soundPath": "AND HIS NAME IS JOHN CENA.mp3",
+    "soundPath": "AND_HIS_NAME_IS_JOHN_CENA.mp3",
     "imagePath": "john_cena.jpg",
     "searchString": "and his name is john cena wwe"
   },
@@ -1324,7 +1324,7 @@ var soundData = [
   },
   {
     "title": "MGS Alert",
-    "soundPath": "MGS ALERT.mp3",
+    "soundPath": "MGS_ALERT.mp3",
     "imagePath": "alert.jpg",
     "searchString": "game videogame surprise"
   },
@@ -1354,7 +1354,7 @@ var soundData = [
   },
   {
     "title": "Mario here we go",
-    "soundPath": "MARIO HERE WE GO.mp3",
+    "soundPath": "MARIO_HERE_WE_GO.mp3",
     "imagePath": "herewego.png",
     "searchString": "super mario bros here we go"
   },
@@ -1468,7 +1468,7 @@ var soundData = [
   },
   {
     "title": "OMG, who the hell cares",
-    "soundPath": "OMG WHO THE HELL CARES.mp3",
+    "soundPath": "OMG_WHO_THE_HELL_CARES.mp3",
     "imagePath": "peter_who_cares.jpg",
     "searchString": "peter griffin cartoon family guy"
   },
@@ -1516,7 +1516,7 @@ var soundData = [
   },
   {
     "title": "Record scratch",
-    "soundPath": "RECORD SCRATCH.mp3",
+    "soundPath": "RECORD_SCRATCH.mp3",
     "imagePath": "record_scratch.jpg",
     "searchString": "stop wait freeze"
   },
@@ -1534,7 +1534,7 @@ var soundData = [
   },
   {
     "title": "Rubber duck",
-    "soundPath": "RUBBER DUCK.mp3",
+    "soundPath": "RUBBER_DUCK.mp3",
     "imagePath": "rubber_duck.jpg",
     "searchString": "bath squeak"
   },
@@ -1570,7 +1570,7 @@ var soundData = [
   },
   {
     "title": "Sad violin",
-    "soundPath": "SAD MUSIC #2.mp3",
+    "soundPath": "SAD_MUSIC_2.mp3",
     "imagePath": "tiny_violin.jpg",
     "searchString": "sadness fail"
   },
@@ -1600,37 +1600,37 @@ var soundData = [
   },
   {
     "title": "Spongebob: A few moments later",
-    "soundPath": "SPONGEBOB TIME CARDS - A FEW MOMENTS LATER.mp3",
+    "soundPath": "SPONGEBOB_TIME_CARDS_-_A_FEW_MOMENTS_LATER.mp3",
     "imagePath": "few_moments.jpg",
     "searchString": "spongebob cartoon"
   },
   {
     "title": "Spongebob: Eventually",
-    "soundPath": "SPONGEBOB TIME CARDS - EVENTUALLY.mp3",
+    "soundPath": "SPONGEBOB_TIME_CARDS_-_EVENTUALLY.mp3",
     "imagePath": "eventually.jpg",
     "searchString": "spongebob cartoon"
   },
   {
     "title": "Spongebob: Meanwhile",
-    "soundPath": "SPONGEBOB TIME CARDS - MEANWHILE.mp3",
+    "soundPath": "SPONGEBOB_TIME_CARDS_-_MEANWHILE.mp3",
     "imagePath": "meanwhile.jpg",
     "searchString": "spongebob cartoon"
   },
   {
     "title": "Spongebob: One eternity later",
-    "soundPath": "SPONGEBOB TIME CARDS - ONE ETERNITY LATER.mp3",
+    "soundPath": "SPONGEBOB_TIME_CARDS_-_ONE_ETERNITY_LATER.mp3",
     "imagePath": "eternity_later.jpg",
     "searchString": "spongebob cartoon waiting"
   },
   {
     "title": "Spongebob: Uhhh",
-    "soundPath": "SPONGEBOB TIME CARDS - UHH.mp3",
+    "soundPath": "SPONGEBOB_TIME_CARDS_-_UHH.mp3",
     "imagePath": "uhhh.jpg",
     "searchString": "spongebob cartoon frustration"
   },
   {
     "title": "Suddenly!",
-    "soundPath": "SUDDEN SUSPENSE.mp3",
+    "soundPath": "SUDDEN_SUSPENSE.mp3",
     "imagePath": "sudden_suspense.jpg",
     "searchString": "surprised cat sudden suspense"
   },
@@ -1642,13 +1642,13 @@ var soundData = [
   },
   {
     "title": "Surprise",
-    "soundPath": "SURPRISE MOTHER F!!!!!.mp3",
+    "soundPath": "SURPRISE_MOTHER_F!!!!!.mp3",
     "imagePath": "surprise.jpg",
     "searchString": "motherfucker surprise meme"
   },
   {
     "title": "Suspense",
-    "soundPath": "SUSPENSE #2.mp3",
+    "soundPath": "SUSPENSE_2.mp3",
     "imagePath": "suspense.jpg",
     "searchString": "scary suspense horror"
   },
@@ -1660,7 +1660,7 @@ var soundData = [
   },
   {
     "title": "They ask you how you are",
-    "soundPath": "THEY ASK YOU HOW YOU ARE.mp3",
+    "soundPath": "THEY_ASK_YOU_HOW_YOU_ARE.mp3",
     "imagePath": "crying.jpg",
     "searchString": "crying sadness girl"
   },
@@ -1678,13 +1678,13 @@ var soundData = [
   },
   {
     "title": "Titanic flute fail",
-    "soundPath": "TITANIC FLUTE FAIL.mp3",
+    "soundPath": "TITANIC_FLUTE_FAIL.mp3",
     "imagePath": "titanic.jpg",
     "searchString": "failure epic fail"
   },
   {
     "title": "To be continued...",
-    "soundPath": "TO BE CONTINUED.mp3",
+    "soundPath": "TO_BE_CONTINUED.mp3",
     "imagePath": "to_be_continued.jpg",
     "searchString": "jojo roundabout meme"
   },
@@ -1744,7 +1744,7 @@ var soundData = [
   },
   {
     "title": "Vine boom",
-    "soundPath": "VINE GUN SHOT aka BOOM.mp3",
+    "soundPath": "VINE_GUN_SHOT_aka_BOOM.mp3",
     "imagePath": "vine.jpg",
     "searchString": "boom effect"
   },
@@ -1774,19 +1774,19 @@ var soundData = [
   },
   {
     "title": "Windows Error",
-    "soundPath": "WINDOWS XP ERROR.mp3",
+    "soundPath": "WINDOWS_XP_ERROR.mp3",
     "imagePath": "windows_error.jpg",
     "searchString": "wrong broken computer"
   },
   {
     "title": "Windows start up",
-    "soundPath": "WINDOWS XP START UP.mp3",
+    "soundPath": "WINDOWS_XP_START_UP.mp3",
     "imagePath": "windows_startup.jpg",
     "searchString": "turn on wake up computer"
   },
   {
     "title": "Y u always lying",
-    "soundPath": "Y U ALWAYS LYING.mp3",
+    "soundPath": "Y_U_ALWAYS_LYING.mp3",
     "imagePath": "always_lying.jpg",
     "searchString": "meme why you always lying"
   },
@@ -1816,7 +1816,7 @@ var soundData = [
   },
   {
     "title": "Zoidberg woop",
-    "soundPath": "DR ZOIDBERG WOOP.mp3",
+    "soundPath": "DR_ZOIDBERG_WOOP.mp3",
     "imagePath": "zoid.jpg",
     "searchString": "futurama cartoon"
   }
