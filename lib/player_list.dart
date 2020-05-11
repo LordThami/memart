@@ -26,7 +26,7 @@ class PlayerList extends StatelessWidget {
             crossAxisSpacing: 16.0,
             childAspectRatio: 1.0,
           ),
-          padding: EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 144.0),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           itemBuilder: (BuildContext context, int id) {
             var sound = _sounds[id];
             return Consumer<AppModel>(

@@ -86,10 +86,10 @@ class AppModel extends ChangeNotifier {
         .toList();
   }
 
-  String getSelectedSoundTitle() {
+  Map<String, String> getSelectedSound() {
     if (selectedSoundPath == null) return null;
-    return sounds.firstWhere(
-        (sound) => sound['soundPath'] == selectedSoundPath)['title'];
+    return sounds
+        .firstWhere((sound) => sound['soundPath'] == selectedSoundPath);
   }
 
   List<Map<String, String>> getSearchResults(String input) {
@@ -129,7 +129,9 @@ class AppModel extends ChangeNotifier {
   }
 
   Future<void> share() async {
-    var title = getSelectedSoundTitle();
+    final selectedSound = getSelectedSound();
+    if (selectedSound == null) return;
+    final title = selectedSound['title'];
     final ByteData bytes =
         await rootBundle.load('assets/sounds/$selectedSoundPath');
     await Share.file('Share "$title"', selectedSoundPath,

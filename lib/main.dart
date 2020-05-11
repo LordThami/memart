@@ -119,83 +119,27 @@ class AppBody extends StatelessWidget {
 
   final PageController _controller;
 
-  @override
-  Widget build(BuildContext context) {
-    return SlidingUpPanel(
-      panel: Panel(),
-      minHeight: 64,
-      maxHeight: 144,
-      // parallaxEnabled: true,
-      backdropEnabled: true,
-      // color: Color(0xFF383A3D),
-      color: Color(0xFF35383C),
-      boxShadow: const <BoxShadow>[
-        BoxShadow(blurRadius: 4.0, color: Color.fromRGBO(0, 0, 0, 0.6))
-      ],
-      borderRadius: BorderRadius.only(
-          topLeft: const Radius.circular(16.0),
-          topRight: const Radius.circular(16.0)),
-      body: SafeArea(
-        child: PageView(
-          physics: NeverScrollableScrollPhysics(),
-          controller: _controller,
-          children: [
-            HomePage(),
-            SearchPage(),
-            FavoritesPage(),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Panel extends StatelessWidget {
-  const Panel({
-    Key key,
-  }) : super(key: key);
+  //BoxShadow(blurRadius: 4.0, color: Color.fromRGBO(0, 0, 0, 0.6)
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Stack(
-          children: <Widget>[
-            Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                padding: const EdgeInsets.only(top: 10.0),
-                child: Container(
-                  height: 3,
-                  width: 40,
-                  decoration: ShapeDecoration(
-                    color: Colors.white24,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0)),
-                  ),
-                ),
-              ),
-            ),
-            BottomPlayer(),
-          ],
-        ),
-        Expanded(
-          child: Container(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 16.0),
-                child: RaisedButton(
-                  color: Colors.pink,
-                  child: Text('Share this sound'),
-                  onPressed: () async {
-                    Provider.of<AppModel>(context, listen: false).share();
-                  },
-                ),
-              ),
+    return SafeArea(
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: PageView(
+              physics: NeverScrollableScrollPhysics(),
+              controller: _controller,
+              children: [
+                HomePage(),
+                SearchPage(),
+                FavoritesPage(),
+              ],
             ),
           ),
-        ),
-      ],
+          BottomPlayer(),
+        ],
+      ),
     );
   }
 }
@@ -208,92 +152,136 @@ class BottomPlayer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<AppModel>(builder: (context, model, child) {
-      var selectedSoundTitle = model.getSelectedSoundTitle();
-      var isLiked = model.isLiked(model.selectedSoundPath);
+      var selectedSound = model.getSelectedSound();
 
-      if (selectedSoundTitle == null) return Container();
+      if (selectedSound == null) return Container();
+
+      final selectedSoundTitle = selectedSound['title'];
+      final selectedSoundImagePath = selectedSound['imagePath'];
+      final isLiked = model.isLiked(model.selectedSoundPath);
+
+      final _playerIcon = model.isPlaying
+          ? Icons.pause_circle_filled
+          : Icons.play_circle_filled;
 
       return Container(
-        height: 64,
-        child: Stack(
+        height: 72,
+        decoration: BoxDecoration(
+          color: Color(0xFF35383C),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+            ),
+          ],
+        ),
+        child: Row(
           children: <Widget>[
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 4.0),
-                child: Text(
-                  selectedSoundTitle,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
+            _buildPlayer(model, selectedSoundImagePath, _playerIcon),
+            SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                selectedSoundTitle,
+                maxLines: 2,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  height: 1.3,
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: SizedBox(
-                height: 56.0,
-                width: 56.0,
-                child: FlatButton(
-                  padding: EdgeInsets.all(0.0),
-                  child: Container(
-                    height: 32.0,
-                    width: 32.0,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 2.0,
-                        color: Colors.white,
-                      ),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Center(
-                      child: model.isPlaying
-                          ? Icon(
-                              Icons.stop,
-                              size: 20.0,
-                            )
-                          : Icon(
-                              Icons.play_arrow,
-                              size: 20.0,
-                            ),
-                    ),
-                  ),
-                  onPressed: () =>
-                      model.isPlaying ? model.stop() : model.play(),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
-                ),
+            SizedBox(width: 16),
+            IconButton(
+              splashColor: Colors.transparent,
+              padding: const EdgeInsets.all(16.0),
+              icon: Icon(
+                Icons.share,
+                color: Colors.white70,
+                size: 24.0,
               ),
+              onPressed: () => model.share(),
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Stack(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Icon(
-                      CustomIcons.heart,
-                      color: isLiked ? Colors.pink : Colors.black26,
-                      size: 24.0,
-                    ),
-                  ),
-                  IconButton(
-                    splashColor: Colors.transparent,
-                    padding: const EdgeInsets.all(16.0),
-                    icon: Icon(
-                      CustomIcons.heart_empty,
-                      color: isLiked ? Colors.white : Colors.white70,
-                      size: 24.0,
-                    ),
-                    onPressed: () => isLiked
-                        ? model.unlike(model.selectedSoundPath)
-                        : model.like(model.selectedSoundPath),
-                  ),
-                ],
-              ),
+            LikeButton(
+              isLiked: isLiked,
+              onPressed: () => isLiked
+                  ? model.unlike(model.selectedSoundPath)
+                  : model.like(model.selectedSoundPath),
             ),
           ],
         ),
       );
     });
+  }
+
+  GestureDetector _buildPlayer(
+      AppModel model, String selectedSoundImagePath, IconData _playerIcon) {
+    return GestureDetector(
+      onTap: () => model.isPlaying ? model.stop() : model.play(),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Image(
+            image: AssetImage('assets/images/$selectedSoundImagePath'),
+            color: Colors.black26,
+            colorBlendMode: BlendMode.darken,
+          ),
+          Stack(
+            alignment: Alignment.center,
+            children: <Widget>[
+              Container(
+                height: 30,
+                width: 30,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.black54,
+                    blurRadius: 20.0,
+                  ),
+                ]),
+              ),
+              Icon(
+                _playerIcon,
+                size: 40.0,
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LikeButton extends StatelessWidget {
+  const LikeButton({
+    Key key,
+    @required this.isLiked,
+    @required this.onPressed,
+  }) : super(key: key);
+
+  final bool isLiked;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Icon(
+            CustomIcons.heart,
+            color: isLiked ? Colors.white : Colors.transparent,
+            size: 24.0,
+          ),
+        ),
+        IconButton(
+          splashColor: Colors.transparent,
+          padding: const EdgeInsets.all(16.0),
+          icon: Icon(
+            CustomIcons.heart_empty,
+            color: isLiked ? Colors.transparent : Colors.white70,
+            size: 24.0,
+          ),
+          onPressed: onPressed,
+        ),
+      ],
+    );
   }
 }
