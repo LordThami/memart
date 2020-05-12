@@ -2,7 +2,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:meme_soundboard/app_model.dart';
 import 'package:provider/provider.dart';
-import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'custom_icons_icons.dart';
 import 'home_page.dart';
 import 'favorites_page.dart';
@@ -15,7 +14,7 @@ void main() {
     systemNavigationBarColor: Colors.black,
   ));
   runApp(ChangeNotifierProvider(
-    builder: (context) => AppModel(),
+    create: (BuildContext context) => AppModel(),
     child: MemeSoundboardApp(),
   ));
 }
